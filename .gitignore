@@ -1,0 +1,3 @@
+# Arquivos internos do Open Design (não fazem parte do site)
+.od-skills/
+*.artifact.json

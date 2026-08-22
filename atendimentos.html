@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Atendimentos — Tadeu França</title>
+<meta name="description" content="Públicos atendidos, formatos, modalidades e demandas atendidas por Tadeu França em consultório particular em Itaquera.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,460;9..144,560&family=Mulish:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles-base.css">
+<link rel="stylesheet" href="styles-components.css">
+</head>
+<body>
+<div class="thread" aria-hidden="true"><span class="thread__progress"></span></div>
+
+<header class="nav">
+  <div class="nav__inner">
+    <a class="nav__brand" href="index.html">Tadeu&nbsp;França</a>
+    <button class="nav__toggle" aria-expanded="false" aria-controls="menu" aria-label="Abrir menu">☰</button>
+    <div class="nav__menu-wrap" id="menu">
+      <nav class="menu" aria-label="Navegação principal">
+        <a href="index.html">Início</a>
+        <a href="sobre.html">Sobre &amp; Formação</a>
+        <a href="atendimentos.html" class="is-current">Atendimentos</a>
+        <a href="como-funciona.html">Como Funciona</a>
+        <a href="contato.html">Contato</a>
+      </nav>
+      <a class="btn btn--solid nav__cta" href="contato.html">Agendar conversa</a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="hero hero--page" aria-labelledby="at-title">
+    <div class="hero__inner">
+      <p class="hero__eyebrow">Atendimentos</p>
+      <h1 id="at-title">Para quem é, e como acontece.</h1>
+      <p class="hero__lead">O atendimento é individual e em consultório particular. Abaixo, os públicos, formatos e demandas que costumam chegar por aqui.</p>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="publicos-title">
+    <div class="container">
+      <div class="section__head">
+        <p class="section__eyebrow">Públicos</p>
+        <h2 id="publicos-title">Quem costuma procurar o atendimento</h2>
+      </div>
+      <div class="cards">
+        <article class="card icon-row">
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 12a4 4 0 1 0-4-4 4 4 0 0 0 4 4Z"/><path d="M4 20a8 8 0 0 1 16 0"/></svg>
+          <div><h3>Adolescentes</h3><p>Espaço para a fase de descoberta, mudanças e pressões típicas da juventude.</p></div>
+        </article>
+        <article class="card icon-row">
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="3" width="14" height="18" rx="3"/><path d="M9 8h6"/></svg>
+          <div><h3>Adultos</h3><p>Demandas de rotina, relações, trabalho e a busca por mais equilíbrio.</p></div>
+        </article>
+        <article class="card icon-row">
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v8l5 3"/><circle cx="12" cy="12" r="9"/></svg>
+          <div><h3>Idosos</h3><p>Acolhimento para a maturidade, perdas, transições e novo sentido.</p></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--surface" aria-labelledby="formatos-title">
+    <div class="container">
+      <div class="section__head">
+        <p class="section__eyebrow">Formatos &amp; modalidades</p>
+        <h2 id="formatos-title">Como a sessão pode acontecer</h2>
+      </div>
+      <ul class="spec-list">
+        <li><span class="spec-list__k">Modalidade</span><p class="spec-list__d">Presencial — em consultório particular em Itaquera, com o acolhimento do espaço físico.</p></li>
+        <li><span class="spec-list__k">Formato</span><p class="spec-list__d">Individual — atendimento um a um, focado inteiramente na sua trajetória.</p></li>
+        <li><span class="spec-list__k">Acompanhamento</span><p class="spec-list__d">Contínuo — encontros regulares, com plano revisado ao longo do percurso.</p></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="demandas-title">
+    <div class="container">
+      <div class="section__head">
+        <p class="section__eyebrow">Demandas</p>
+        <h2 id="demandas-title">Algumas razões que trazem as pessoas aqui</h2>
+        <p>Cada caso é único. Estes são exemplos comuns — não um diagnóstico.</p>
+      </div>
+      <div class="chips">
+        <span class="chip">Ansiedade</span>
+        <span class="chip">Depressão</span>
+        <span class="chip">Luto</span>
+        <span class="chip">Conflitos familiares</span>
+        <span class="chip">Transições de vida</span>
+        <span class="chip chip--accent">Busca de sentido</span>
+        <span class="chip chip--accent">Autoconhecimento</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--surface" aria-labelledby="reemb-title">
+    <div class="container">
+      <div class="locbar">
+        <div>
+          <p class="section__eyebrow" style="margin-bottom:0.4rem">Reembolso</p>
+          <h2 id="reemb-title" style="font-size:1.4rem">Atendimento compatível com reembolso</h2>
+          <address>Planos de saúde que reembolsam entre 12 a 18 sessões podem ser compatíveis com o atendimento.</address>
+        </div>
+        <a class="btn btn--ghost" href="contato.html">Tirar dúvidas sobre reembolso</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="fechamento-title">
+    <div class="container">
+      <div class="closing">
+        <p id="fechamento-title">Não tem certeza se seu caso se encaixa? A conversa inicial é justamente para isso.</p>
+        <a class="btn btn--solid" href="contato.html">Agendar conversa inicial</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="container footer__grid">
+    <div>
+      <div class="footer__brand">Tadeu França</div>
+      <p class="footer__meta">Psicólogo · Terapia individual em consultório particular.<br>Itaquera, Zona Leste de São Paulo.</p>
+    </div>
+    <div>
+      <ul class="footer__nav">
+        <li><a href="index.html">Início</a></li>
+        <li><a href="sobre.html">Sobre &amp; Formação</a></li>
+        <li><a href="atendimentos.html">Atendimentos</a></li>
+        <li><a href="como-funciona.html">Como Funciona</a></li>
+        <li><a href="contato.html">Contato</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="container footer__bottom">
+    <p>© <span data-year>2026</span> Tadeu França. Todos os direitos reservados.</p>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
