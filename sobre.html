@@ -1,123 +1,268 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sobre &amp; Formação — Tadeu França</title>
-<meta name="description" content="Trajetória, formação e princípios de Tadeu França, psicólogo com atendimento em consultório particular em Itaquera.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,460;9..144,560&family=Mulish:wght@400;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles-base.css">
-<link rel="stylesheet" href="styles-components.css">
+  <script>document.documentElement.classList.add('js');</script>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sobre &amp; Formação — Tadeu França</title>
+  <meta name="description" content="Trajetória, forma de trabalhar e formação de Tadeu França — Terapeuta Comportamental ABA, Neuropsicopedagogo Clínico e Psicanalista Clínico." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Mulish:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            terracota: '#A9604D',
+            'terracota-2': '#C8876E',
+            areia: '#D9B9A1',
+            creme: '#F1E4D4',
+            offwhite: '#FBF7F1',
+            grafite: '#3A2E2A'
+          },
+          fontFamily: {
+            display: ['Fraunces', 'Georgia', 'serif'],
+            body: ['Mulish', 'system-ui', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="assets/styles.css" />
 </head>
-<body>
-<div class="thread" aria-hidden="true"><span class="thread__progress"></span></div>
+<body class="font-body antialiased">
+  <div id="progress"></div>
 
-<header class="nav">
-  <div class="nav__inner">
-    <a class="nav__brand" href="index.html">Tadeu&nbsp;França</a>
-    <button class="nav__toggle" aria-expanded="false" aria-controls="menu" aria-label="Abrir menu">☰</button>
-    <div class="nav__menu-wrap" id="menu">
-      <nav class="menu" aria-label="Navegação principal">
-        <a href="index.html">Início</a>
-        <a href="sobre.html" class="is-current">Sobre &amp; Formação</a>
-        <a href="atendimentos.html">Atendimentos</a>
-        <a href="como-funciona.html">Como Funciona</a>
-        <a href="contato.html">Contato</a>
-      </nav>
-      <a class="btn btn--solid nav__cta" href="contato.html">Agendar conversa</a>
-    </div>
-  </div>
-</header>
+  <header class="sticky top-0 z-50 bg-offwhite/90 backdrop-blur border-b border-areia/50">
+    <nav class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+      <a href="index.html" class="font-display text-lg font-semibold text-terracota">Tadeu França</a>
+      <ul class="hidden md:flex items-center gap-8 text-sm">
+        <li><a href="index.html" class="nav-link text-grafite/80 hover:text-grafite">Início</a></li>
+        <li><a href="sobre.html" aria-current="page" class="nav-link text-grafite">Sobre &amp; Formação</a></li>
+        <li><a href="atendimentos.html" class="nav-link text-grafite/80 hover:text-grafite">Atendimentos</a></li>
+        <li><a href="como-funciona.html" class="nav-link text-grafite/80 hover:text-grafite">Como Funciona</a></li>
+        <li><a href="contato.html" class="nav-link text-grafite/80 hover:text-grafite">Contato</a></li>
+      </ul>
+      <a href="contato.html" class="cta-whatsapp text-sm font-semibold px-4 py-2 rounded-full md:hidden">Contato</a>
+    </nav>
+    <nav class="md:hidden border-t border-areia/50 px-6 py-2 flex gap-4 overflow-x-auto text-sm">
+      <a href="index.html" class="text-grafite/70 whitespace-nowrap">Início</a>
+      <a href="sobre.html" class="text-terracota font-semibold whitespace-nowrap">Sobre</a>
+      <a href="atendimentos.html" class="text-grafite/70 whitespace-nowrap">Atendimentos</a>
+      <a href="como-funciona.html" class="text-grafite/70 whitespace-nowrap">Como Funciona</a>
+      <a href="contato.html" class="text-grafite/70 whitespace-nowrap">Contato</a>
+    </nav>
+  </header>
 
-<main>
-  <section class="hero hero--page" aria-labelledby="sobre-title">
-    <div class="hero__inner">
-      <p class="hero__eyebrow">Sobre &amp; Formação</p>
-      <h1 id="sobre-title">A escuta vem antes de qualquer técnica.</h1>
-      <p class="hero__lead">Antes de falar de método, vale falar de postura: um atendimento só funciona se houver um lugar seguro para a pessoa se expressar.</p>
-    </div>
-  </section>
+  <main id="content">
 
-  <section class="section" aria-labelledby="trajetoria-title">
-    <div class="container">
-      <div class="split">
-        <div class="split__lead">Trajetória</div>
-        <div class="split__body">
-          <h2 id="trajetoria-title" class="visually-hidden">Trajetória</h2>
-          <p>Ao longo dos anos de atuação em consultório particular, acompanhamento de adolescentes, adultos e idosos em momentos muito diferentes — de crises agudas a buscas mais silenciosas por sentido.</p>
-          <p>Cada percurso ensina algo. O que mantenho constante é a convicção de que o vínculo terapêutico é a base de qualquer mudança possível.</p>
+    <!-- INTRO -->
+    <section data-od-id="intro" class="relative max-w-3xl mx-auto px-6 pt-24 pb-12 md:pt-32">
+      <div class="thread left-2 md:left-8" aria-hidden="true"></div>
+      <div class="pl-8 md:pl-20">
+        <p class="eyebrow mb-5">Sobre &amp; Formação</p>
+        <h1 class="font-display font-semibold leading-[1.05] text-5xl md:text-7xl text-grafite mb-8">
+          Três décadas ouvindo histórias
+        </h1>
+        <p class="text-xl text-grafite/80 leading-relaxed max-w-2xl">
+          Minha trajetória profissional está ligada há mais de três décadas à educação, ao desenvolvimento humano e ao acompanhamento de pessoas.
+        </p>
+      </div>
+    </section>
+
+    <!-- TRAJETÓRIA -->
+    <section data-od-id="trajetoria" class="max-w-5xl mx-auto px-6 py-16 md:py-20">
+      <div class="grid lg:grid-cols-12 gap-8 lg:gap-12 items-start">
+        <div class="lg:col-span-4 reveal-left">
+          <p class="sticky-label eyebrow mb-3">Trajetória</p>
+          <div class="figure-block mt-6">
+            <span class="figure-num text-7xl">3</span>
+            <span class="figure-unit">+ décadas</span>
+          </div>
+          <p class="mt-3 text-sm text-grafite/60">de atuação em desenvolvimento humano</p>
+        </div>
+        <div class="lg:col-span-8 reveal-right">
+          <h2 class="font-display font-semibold text-3xl md:text-4xl text-grafite mb-6">Trajetória profissional</h2>
+          <p class="text-xl text-grafite/80 leading-relaxed">
+            Minha trajetória profissional está ligada há mais de três décadas à educação, ao desenvolvimento humano e ao acompanhamento de pessoas. Ao longo dessa caminhada, atuei em diferentes contextos educacionais e fui ampliando minha formação para compreender melhor as dificuldades de aprendizagem, o comportamento e o desenvolvimento. Essa experiência me levou a aprofundar meus estudos em ABA, Neuropsicopedagogia Clínica e Psicanálise Clínica, unindo minha experiência pedagógica à atuação terapêutica.
+          </p>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <div class="quote" aria-hidden="true">
-    <blockquote>Cada pessoa tem uma história que merece ser ouvida com atenção.</blockquote>
-    <cite>Princípio de atendimento · Tadeu França</cite>
-  </div>
-
-  <section class="section section--surface" aria-labelledby="formacao-title">
-    <div class="container">
-      <div class="section__head">
-        <p class="section__eyebrow">Formação &amp; atuação</p>
-        <h2 id="formacao-title">O que sustenta o trabalho clínico</h2>
+    <!-- O QUE ME LEVOU -->
+    <section data-od-id="o-que-me-levou" class="bg-creme/70 py-16 md:py-20 reveal">
+      <div class="max-w-3xl mx-auto px-6">
+        <h2 class="font-display font-semibold text-3xl md:text-4xl text-grafite mb-6">O que me levou a escolher essa área</h2>
+        <p class="text-xl text-grafite/80 leading-relaxed">
+          A experiência dentro da educação mostrou-me que muitas dificuldades apresentadas por crianças, adolescentes e adultos não podem ser compreendidas apenas pelo aspecto acadêmico. É necessário olhar para o comportamento, as emoções, o ambiente familiar, a aprendizagem e a individualidade de cada pessoa.
+        </p>
       </div>
-      <ul class="ticklist">
-        <li><div><strong>Formação em Psicologia</strong><p>Base acadêmica consistente para a prática clínica.</p></div></li>
-        <li><div><strong>Atendimento individual em consultório particular</strong><p>Foco no acompanhamento contínuo e personalizado.</p></div></li>
-        <li><div><strong>Atuação com diferentes faixas etárias</strong><p>Adolescentes, adultos e idosos, com escuta adaptada a cada fase.</p></div></li>
-        <li><div><strong>Postura ética e sigilosa</strong><p>Respeito ao Código de Ética e ao ritmo de cada pessoa.</p></div></li>
-      </ul>
-    </div>
-  </section>
+    </section>
 
-  <section class="section" aria-labelledby="principios-title">
-    <div class="container">
-      <div class="section__head">
-        <p class="section__eyebrow">Como conduzo</p>
-        <h2 id="principios-title">Princípios que orientam o atendimento</h2>
+    <!-- O QUE ME MOTIVA -->
+    <section data-od-id="o-que-me-motiva" class="max-w-3xl mx-auto px-6 py-16 md:py-20 reveal">
+      <h2 class="eyebrow mb-5">O que me motiva</h2>
+      <p class="font-display text-3xl md:text-4xl text-terracota leading-snug max-w-3xl">
+        Ver pequenas conquistas se transformarem em grandes mudanças na vida do paciente e da família. Muitas vezes, aquilo que parece uma pequena evolução representa uma enorme vitória para uma família.
+      </p>
+    </section>
+
+    <!-- FORMA DE TRABALHAR -->
+    <section data-od-id="forma-de-trabalhar" class="bg-creme/70 py-16 md:py-20">
+      <div class="max-w-5xl mx-auto px-6">
+        <div class="grid lg:grid-cols-12 gap-8 lg:gap-12 items-start">
+          <div class="lg:col-span-4 reveal-left">
+            <p class="sticky-label eyebrow mb-3">Como trabalho</p>
+          </div>
+          <div class="lg:col-span-8 reveal-right">
+            <h2 class="font-display font-semibold text-3xl md:text-4xl text-grafite mb-6">Minha forma de trabalhar</h2>
+            <p class="text-xl text-grafite/80 leading-relaxed">
+              O atendimento é individualizado: primeiro procuro compreender a história, as necessidades e os objetivos do paciente e da família — antes de qualquer diagnóstico existe uma pessoa, uma família, uma história. A partir disso, construo estratégias de acompanhamento que possam ser aplicadas de maneira prática no cotidiano. Como um profissional acolhedor, comprometido, humano, experiente, que realmente procura compreender cada paciente antes de propor qualquer intervenção.
+            </p>
+          </div>
+        </div>
       </div>
-      <div class="cards">
-        <article class="card"><div class="card__kicker">Sem pressa</div><h3>Ritmo respeitado</h3><p>Não apresso processos. Cada pessoa reorganiza a própria vida no tempo que for preciso.</p></article>
-        <article class="card"><div class="card__kicker">Sem julgamento</div><h3>Escuta neutra</h3><p>O consultório é um espaço onde você pode falar de tudo, inclusive do que dói.</p></article>
-        <article class="card"><div class="card__kicker">Sem fórmulas</div><h3>Plano individual</h3><p>Nada de respostas prontas: o caminho é definido com você, não para você.</p></article>
+    </section>
+
+    <!-- VALORES -->
+    <section data-od-id="valores" class="py-16 md:py-20 reveal">
+      <div class="px-6 mb-6 max-w-6xl mx-auto">
+        <h2 class="font-display font-semibold text-3xl md:text-4xl text-terracota">Valores</h2>
+        <div class="mt-3 h-px w-full bg-terracota/40"></div>
+      </div>
+
+      <div class="valores-tape bg-terracota text-offwhite">
+        <div class="valores-track">
+          <span class="vt-item">Acolhimento</span><span class="vt-sep">·</span>
+          <span class="vt-item">Respeito</span><span class="vt-sep">·</span>
+          <span class="vt-item">Ética</span><span class="vt-sep">·</span>
+          <span class="vt-item">Empatia</span><span class="vt-sep">·</span>
+          <span class="vt-item">Escuta</span><span class="vt-sep">·</span>
+          <span class="vt-item">Individualidade</span><span class="vt-sep">·</span>
+          <span class="vt-item">Responsabilidade profissional</span><span class="vt-sep">·</span>
+          <span class="vt-item">Humanização</span><span class="vt-sep">·</span>
+          <span class="vt-item">Compromisso com o desenvolvimento e autonomia</span><span class="vt-sep">·</span>
+          <span class="vt-item">Acolhimento</span><span class="vt-sep">·</span>
+          <span class="vt-item">Respeito</span><span class="vt-sep">·</span>
+          <span class="vt-item">Ética</span><span class="vt-sep">·</span>
+          <span class="vt-item">Empatia</span><span class="vt-sep">·</span>
+          <span class="vt-item">Escuta</span><span class="vt-sep">·</span>
+          <span class="vt-item">Individualidade</span><span class="vt-sep">·</span>
+          <span class="vt-item">Responsabilidade profissional</span><span class="vt-sep">·</span>
+          <span class="vt-item">Humanização</span><span class="vt-sep">·</span>
+          <span class="vt-item">Compromisso com o desenvolvimento e autonomia</span><span class="vt-sep">·</span>
+        </div>
+      </div>
+
+      <div class="valores-tape bg-creme text-terracota mt-1">
+        <div class="valores-track valores-track--rev">
+          <span class="vt-item">Acolhimento</span><span class="vt-sep">·</span>
+          <span class="vt-item">Respeito</span><span class="vt-sep">·</span>
+          <span class="vt-item">Ética</span><span class="vt-sep">·</span>
+          <span class="vt-item">Empatia</span><span class="vt-sep">·</span>
+          <span class="vt-item">Escuta</span><span class="vt-sep">·</span>
+          <span class="vt-item">Individualidade</span><span class="vt-sep">·</span>
+          <span class="vt-item">Responsabilidade profissional</span><span class="vt-sep">·</span>
+          <span class="vt-item">Humanização</span><span class="vt-sep">·</span>
+          <span class="vt-item">Compromisso com o desenvolvimento e autonomia</span><span class="vt-sep">·</span>
+          <span class="vt-item">Acolhimento</span><span class="vt-sep">·</span>
+          <span class="vt-item">Respeito</span><span class="vt-sep">·</span>
+          <span class="vt-item">Ética</span><span class="vt-sep">·</span>
+          <span class="vt-item">Empatia</span><span class="vt-sep">·</span>
+          <span class="vt-item">Escuta</span><span class="vt-sep">·</span>
+          <span class="vt-item">Individualidade</span><span class="vt-sep">·</span>
+          <span class="vt-item">Responsabilidade profissional</span><span class="vt-sep">·</span>
+          <span class="vt-item">Humanização</span><span class="vt-sep">·</span>
+          <span class="vt-item">Compromisso com o desenvolvimento e autonomia</span><span class="vt-sep">·</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- CITAÇÃO ISOLADA (única no site) -->
+    <section data-od-id="citacao" class="py-24 md:py-32 reveal text-center">
+      <div class="max-w-3xl mx-auto px-6">
+        <blockquote class="font-display italic text-3xl md:text-5xl leading-tight text-terracota">
+          “Cada pessoa tem uma história. Meu trabalho começa quando escolho compreender essa história.”
+        </blockquote>
+        <p class="mt-8 text-sm uppercase tracking-[0.2em] text-terracota-2">Tadeu França</p>
+      </div>
+    </section>
+
+    <!-- FORMAÇÃO -->
+    <section data-od-id="formacao" class="bg-terracota text-offwhite py-20 md:py-28 reveal">
+      <div class="max-w-3xl mx-auto px-6">
+        <p class="eyebrow text-offwhite/70 mb-5">Formação e especializações</p>
+        <h2 class="font-display font-semibold text-3xl md:text-5xl mb-10 leading-tight">Uma base ampla da pessoa</h2>
+        <ul class="grid sm:grid-cols-2 gap-x-10 gap-y-4 text-xl text-offwhite/90">
+          <li>Terapeuta Comportamental ABA</li>
+          <li>Neuropsicopedagogia Clínica</li>
+          <li>Psicanálise Clínica</li>
+          <li>Pedagogia</li>
+          <li>Magistério</li>
+          <li>Pós-graduação/formação em ABA</li>
+          <li>Ludopedagogia</li>
+          <li>Neuroanatomia aplicada às dificuldades de aprendizagem</li>
+          <li>Práticas Pedagógicas Inclusivas</li>
+        </ul>
+        <div class="mt-12 border-t border-offwhite/30 pt-8">
+          <p class="eyebrow text-offwhite/70 mb-4">Posicionamento central</p>
+          <p class="font-display text-2xl md:text-3xl leading-snug">
+            <strong class="font-semibold">ABA + Neuropsicopedagogia Clínica + mais de três décadas na área pedagógica</strong> — esse conjunto é o posicionamento profissional central.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CERTIFICADOS -->
+    <section data-od-id="certificados" class="max-w-3xl mx-auto px-6 py-20 md:py-24 reveal">
+      <h2 class="font-display font-semibold text-3xl md:text-4xl text-grafite mb-4">Certificados</h2>
+      <p class="text-xl text-grafite/80 leading-relaxed">
+        Os certificados das formações estão disponíveis e podem ser apresentados quando solicitado.
+      </p>
+    </section>
+
+    <!-- CTA -->
+    <section data-od-id="cta" class="max-w-3xl mx-auto px-6 py-16 text-center reveal">
+      <a href="https://wa.me/5511932201048?text=Ol%C3%A1%2C%20Tadeu!%20Conheci%20seu%20trabalho%20pelo%20site%20e%20gostaria%20de%20obter%20mais%20informa%C3%A7%C3%B5es%20sobre%20o%20atendimento." class="cta-whatsapp inline-block font-semibold px-8 py-4 rounded-full text-lg">Falar com Tadeu</a>
+    </section>
+
+  </main>
+
+  <footer class="bg-grafite text-offwhite/90">
+    <div class="max-w-6xl mx-auto px-6 py-16 grid md:grid-cols-3 gap-10">
+      <div>
+        <p class="font-display text-2xl text-offwhite mb-4">Tadeu França</p>
+        <p class="text-sm text-offwhite/70 leading-relaxed">Terapeuta Comportamental ABA, Neuropsicopedagogo Clínico e Institucional, Psicanalista Clínico. Itaquera — São Paulo/SP.</p>
+      </div>
+      <div>
+        <p class="eyebrow text-terracota-2 mb-4">Contato</p>
+        <ul class="text-sm space-y-2 text-offwhite/80">
+          <li>WhatsApp: (11) 93220-1048</li>
+          <li>E-mail: terapeutatadeufranca@gmail.com</li>
+          <li>Instagram: @tadeufranca_terapeuta</li>
+        </ul>
+      </div>
+      <div>
+        <p class="eyebrow text-terracota-2 mb-4">Navegação</p>
+        <ul class="text-sm space-y-2 text-offwhite/80">
+          <li><a href="index.html" class="hover:text-offwhite">Início</a></li>
+          <li><a href="sobre.html" class="hover:text-offwhite">Sobre &amp; Formação</a></li>
+          <li><a href="atendimentos.html" class="hover:text-offwhite">Atendimentos</a></li>
+          <li><a href="como-funciona.html" class="hover:text-offwhite">Como Funciona</a></li>
+          <li><a href="contato.html" class="hover:text-offwhite">Contato</a></li>
+        </ul>
       </div>
     </div>
-  </section>
-
-  <section class="section section--surface" aria-labelledby="fechamento-title">
-    <div class="container">
-      <div class="closing">
-        <p id="fechamento-title">Quer conhecer como o atendimento acontece na prática?</p>
-        <a class="btn btn--solid" href="como-funciona.html">Ver como funciona</a>
-      </div>
+    <div class="border-t border-offwhite/15 py-5 text-center text-xs text-offwhite/50">
+      © <span id="ano"></span> Tadeu França. Todos os direitos reservados.
     </div>
-  </section>
-</main>
+  </footer>
 
-<footer class="footer">
-  <div class="container footer__grid">
-    <div>
-      <div class="footer__brand">Tadeu França</div>
-      <p class="footer__meta">Psicólogo · Terapia individual em consultório particular.<br>Itaquera, Zona Leste de São Paulo.</p>
-    </div>
-    <div>
-      <ul class="footer__nav">
-        <li><a href="index.html">Início</a></li>
-        <li><a href="sobre.html">Sobre &amp; Formação</a></li>
-        <li><a href="atendimentos.html">Atendimentos</a></li>
-        <li><a href="como-funciona.html">Como Funciona</a></li>
-        <li><a href="contato.html">Contato</a></li>
-      </ul>
-    </div>
-  </div>
-  <div class="container footer__bottom">
-    <p>© <span data-year>2026</span> Tadeu França. Todos os direitos reservados.</p>
-  </div>
-</footer>
-
-<script src="script.js"></script>
+  <script src="assets/main.js" defer></script>
 </body>
 </html>

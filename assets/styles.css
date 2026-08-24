@@ -1,0 +1,126 @@
+:root{
+  --terracota:#A9604D; --terracota-2:#C8876E; --areia:#D9B9A1; --creme:#F1E4D4;
+  --offwhite:#FBF7F1; --grafite:#3A2E2A;
+}
+*{ box-sizing:border-box; }
+html{ scroll-behavior:smooth; }
+body{ background:var(--offwhite); color:var(--grafite); -webkit-font-smoothing:antialiased; }
+.font-display{ font-family:'Fraunces', Georgia, serif; }
+
+/* Barra de progresso no topo */
+#progress{
+  position:fixed; top:0; left:0; height:3px; width:0%;
+  background:linear-gradient(90deg, var(--terracota), var(--terracota-2));
+  z-index:60; transition:width .12s linear; pointer-events:none;
+}
+
+/* Eyebrow */
+.eyebrow{ letter-spacing:.22em; text-transform:uppercase; font-size:.72rem; color:var(--terracota-2); }
+
+/* Fio condutor vertical */
+.thread{
+  position:absolute; top:0; bottom:0; width:1.5px;
+  background:linear-gradient(to bottom, transparent, var(--terracota) 12%, var(--terracota-2) 88%, transparent);
+  opacity:.8;
+}
+
+/* Navegação */
+.nav-link{ position:relative; }
+.nav-link::after{
+  content:""; position:absolute; left:0; right:0; bottom:-4px; height:1.5px;
+  background:var(--terracota); transform:scaleX(0); transform-origin:left;
+  transition:transform .35s cubic-bezier(.16,1,.3,1);
+}
+.nav-link:hover::after, .nav-link[aria-current="page"]::after{ transform:scaleX(1); }
+
+/* CTAs */
+.cta-whatsapp{
+  background:var(--terracota); color:var(--offwhite);
+  transition:background .3s cubic-bezier(.16,1,.3,1), transform .3s cubic-bezier(.16,1,.3,1);
+}
+.cta-whatsapp:hover{ background:var(--terracota-2); transform:translateY(-1px); }
+.cta-ghost{
+  border:1.5px solid var(--terracota); color:var(--terracota);
+  transition:background .3s cubic-bezier(.16,1,.3,1), color .3s cubic-bezier(.16,1,.3,1);
+}
+.cta-ghost:hover{ background:var(--terracota); color:var(--offwhite); }
+
+/* Reveal — animação em CSS (não depende de JS, texto sempre visível) */
+@keyframes od-rise { from { opacity:0; transform:translateY(14px); } to { opacity:1; transform:none; } }
+@keyframes od-left { from { opacity:0; transform:translateX(-26px); } to { opacity:1; transform:none; } }
+@keyframes od-right{ from { opacity:0; transform:translateX(26px); } to { opacity:1; transform:none; } }
+@keyframes od-scale{ from { opacity:0; transform:scale(.96); } to { opacity:1; transform:none; } }
+@keyframes od-mask { from { clip-path:inset(0 0 100% 0); transform:translateY(10px); } to { clip-path:inset(0 0 0 0); transform:none; } }
+
+.reveal{ animation:od-rise .7s cubic-bezier(.16,1,.3,1) both; }
+.reveal-left{ animation:od-left .7s cubic-bezier(.16,1,.3,1) both; }
+.reveal-right{ animation:od-right .7s cubic-bezier(.16,1,.3,1) both; }
+.reveal-scale{ animation:od-scale .7s cubic-bezier(.16,1,.3,1) both; }
+.reveal-mask{ animation:od-mask .85s cubic-bezier(.16,1,.3,1) both; }
+
+/* Stagger (filhos entram em cascata) */
+.stagger > *{ animation:od-rise .6s cubic-bezier(.16,1,.3,1) both; }
+.stagger > *:nth-child(2){ animation-delay:.06s; }
+.stagger > *:nth-child(3){ animation-delay:.12s; }
+.stagger > *:nth-child(4){ animation-delay:.18s; }
+.stagger > *:nth-child(5){ animation-delay:.24s; }
+.stagger > *:nth-child(6){ animation-delay:.30s; }
+.stagger > *:nth-child(7){ animation-delay:.36s; }
+.stagger > *:nth-child(8){ animation-delay:.42s; }
+.stagger > *:nth-child(9){ animation-delay:.48s; }
+
+/* Sticky label (revista) */
+.sticky-label{ position:static; }
+@media (min-width:1024px){
+  .sticky-label{ position:sticky; top:6.5rem; align-self:start; }
+}
+
+/* Bento grid */
+.bento{ display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:1rem; }
+@media (min-width:768px){ .bento{ grid-template-columns:repeat(3, minmax(0,1fr)); } }
+.bento-tile{
+  border:1.5px solid var(--areia); background:var(--offwhite); border-radius:1.1rem;
+  padding:1.3rem 1.4rem; font-size:1.05rem; color:var(--grafite); line-height:1.35;
+  transition:transform .3s cubic-bezier(.16,1,.3,1), box-shadow .3s cubic-bezier(.16,1,.3,1), border-color .3s cubic-bezier(.16,1,.3,1);
+}
+.bento-tile:hover{ transform:translateY(-3px); box-shadow:0 14px 34px -16px rgba(58,46,42,.3); border-color:var(--terracota-2); }
+.bento-tile.span2{ grid-column:span 2; }
+@media (min-width:768px){ .bento-tile.span3{ grid-column:span 3; } }
+
+/* Bloco de figura (âncora visual) */
+.figure-block{ display:flex; align-items:baseline; gap:.4rem; }
+.figure-num{ font-family:'Fraunces', Georgia, serif; font-weight:600; line-height:.9; color:var(--terracota); }
+.figure-unit{ font-family:'Fraunces', Georgia, serif; font-weight:500; font-size:1.4rem; color:var(--terracota-2); }
+
+/* Fita de valores (marquee) */
+.valores-tape{ overflow:hidden; width:100%; }
+.valores-track{
+  display:inline-flex; white-space:nowrap; align-items:center;
+  animation:vt-scroll 32s linear infinite; will-change:transform;
+}
+.valores-track--rev{ animation-direction:reverse; }
+@keyframes vt-scroll{ from{ transform:translateX(0); } to{ transform:translateX(-50%); } }
+.vt-item{ font-family:'Fraunces', Georgia, serif; font-weight:500; font-size:1.25rem; padding:.55rem 0; }
+.vt-sep{ padding:0 1.5rem; opacity:.55; font-size:1.1rem; }
+
+/* Fio condutor progressivo (como-funciona) */
+.cf-track{ position:relative; }
+.cf-line{ position:absolute; left:27px; top:8px; bottom:8px; width:1.5px; background:var(--areia); border-radius:2px; }
+.cf-fill{ position:absolute; left:27px; top:8px; width:1.5px; height:0; background:linear-gradient(to bottom, var(--terracota), var(--terracota-2)); border-radius:2px; transition:height .15s linear; }
+@media (max-width:640px){ .cf-line,.cf-fill{ left:19px; } }
+
+/* Accordion */
+details > summary{ list-style:none; cursor:pointer; }
+details > summary::-webkit-details-marker{ display:none; }
+details .chev{ transition:transform .3s cubic-bezier(.16,1,.3,1); }
+details[open] .chev{ transform:rotate(45deg); }
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce){
+  html{ scroll-behavior:auto; }
+  #progress{ display:none; }
+  .reveal,.reveal-left,.reveal-right,.reveal-scale,.reveal-mask,.stagger > *{
+    animation:none !important; opacity:1 !important; transform:none !important; clip-path:none !important;
+  }
+  .valores-track{ animation:none !important; }
+}

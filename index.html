@@ -1,142 +1,285 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Tadeu França — Terapia Individual em Itaquera</title>
-<meta name="description" content="Atendimento psicológico individual em Itaquera, Zona Leste de São Paulo. Consultório particular, acolhedor e sem pressa.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,460;9..144,560&family=Mulish:wght@400;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles-base.css">
-<link rel="stylesheet" href="styles-components.css">
+  <script>document.documentElement.classList.add('js');</script>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Tadeu França — Terapeuta Comportamental ABA, Neuropsicopedagogo e Psicanalista</title>
+  <meta name="description" content="Tadeu França — Terapeuta Comportamental ABA, Neuropsicopedagogo Clínico e Psicanalista Clínico. Mais de 30 anos em desenvolvimento, comportamento e aprendizagem com acolhimento." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Mulish:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            terracota: '#A9604D',
+            'terracota-2': '#C8876E',
+            areia: '#D9B9A1',
+            creme: '#F1E4D4',
+            offwhite: '#FBF7F1',
+            grafite: '#3A2E2A'
+          },
+          fontFamily: {
+            display: ['Fraunces', 'Georgia', 'serif'],
+            body: ['Mulish', 'system-ui', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="assets/styles.css" />
 </head>
-<body>
-<div class="thread" aria-hidden="true"><span class="thread__progress"></span></div>
+<body class="font-body antialiased">
+  <div id="progress"></div>
 
-<header class="nav">
-  <div class="nav__inner">
-    <a class="nav__brand" href="index.html">Tadeu&nbsp;França</a>
-    <button class="nav__toggle" aria-expanded="false" aria-controls="menu" aria-label="Abrir menu">☰</button>
-    <div class="nav__menu-wrap" id="menu">
-      <nav class="menu" aria-label="Navegação principal">
-        <a href="index.html" class="is-current">Início</a>
-        <a href="sobre.html">Sobre &amp; Formação</a>
-        <a href="atendimentos.html">Atendimentos</a>
-        <a href="como-funciona.html">Como Funciona</a>
-        <a href="contato.html">Contato</a>
-      </nav>
-      <a class="btn btn--solid nav__cta" href="contato.html">Agendar conversa</a>
-    </div>
-  </div>
-</header>
+  <header class="sticky top-0 z-50 bg-offwhite/90 backdrop-blur border-b border-areia/50">
+    <nav class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+      <a href="index.html" class="font-display text-lg font-semibold text-terracota">Tadeu França</a>
+      <ul class="hidden md:flex items-center gap-8 text-sm">
+        <li><a href="index.html" aria-current="page" class="nav-link text-grafite">Início</a></li>
+        <li><a href="sobre.html" class="nav-link text-grafite/80 hover:text-grafite">Sobre &amp; Formação</a></li>
+        <li><a href="atendimentos.html" class="nav-link text-grafite/80 hover:text-grafite">Atendimentos</a></li>
+        <li><a href="como-funciona.html" class="nav-link text-grafite/80 hover:text-grafite">Como Funciona</a></li>
+        <li><a href="contato.html" class="nav-link text-grafite/80 hover:text-grafite">Contato</a></li>
+      </ul>
+      <a href="contato.html" class="cta-whatsapp text-sm font-semibold px-4 py-2 rounded-full md:hidden">Contato</a>
+    </nav>
+    <nav class="md:hidden border-t border-areia/50 px-6 py-2 flex gap-4 overflow-x-auto text-sm">
+      <a href="index.html" class="text-terracota font-semibold whitespace-nowrap">Início</a>
+      <a href="sobre.html" class="text-grafite/70 whitespace-nowrap">Sobre</a>
+      <a href="atendimentos.html" class="text-grafite/70 whitespace-nowrap">Atendimentos</a>
+      <a href="como-funciona.html" class="text-grafite/70 whitespace-nowrap">Como Funciona</a>
+      <a href="contato.html" class="text-grafite/70 whitespace-nowrap">Contato</a>
+    </nav>
+  </header>
 
-<main>
-  <section class="hero" aria-labelledby="hero-title">
-    <div class="hero__inner">
-      <p class="hero__eyebrow">Terapia individual · Itaquera / Zona Leste</p>
-      <h1 id="hero-title">Um espaço para você se cuidar, sem pressa.</h1>
-      <p class="hero__lead">Atendimento psicológico individual em consultório particular — para adolescentes, adultos e idosos que buscam um lugar calmo para se escutar e reorganizar a própria vida.</p>
-      <div class="hero__actions">
-        <a class="btn btn--solid" href="contato.html">Agendar conversa inicial</a>
-        <a class="btn btn--ghost" href="como-funciona.html">Como funciona</a>
-      </div>
-    </div>
-  </section>
+  <main id="content">
 
-  <section class="section" aria-labelledby="quem-title">
-    <div class="container">
-      <div class="split">
-        <div class="split__lead">Quem é Tadeu</div>
-        <div class="split__body">
-          <h2 id="quem-title" class="visually-hidden">Quem é Tadeu</h2>
-          <p>Sou psicólogo e atendo em consultório particular há anos, com base em Itaquera, na Zona Leste de São Paulo. Meu trabalho parte de uma escuta cuidadosa: antes de qualquer técnica, vem a pessoa — sua história, seu ritmo, o que faz sentido para você.</p>
-          <p>Não trabalho com respostas prontas nem com promessas de resultado. Trabalho com um espaço estável, onde seja possível pensar com calma sobre o que está difícil.</p>
+    <!-- HERO -->
+    <section data-od-id="hero" class="relative max-w-6xl mx-auto px-6 pt-20 pb-16 md:pt-28 md:pb-24">
+      <div class="thread left-2 md:left-8" aria-hidden="true"></div>
+      <div class="grid lg:grid-cols-12 gap-10 lg:gap-16 items-center">
+        <div class="lg:col-span-7 pl-8 md:pl-20">
+          <p class="eyebrow mb-8">Terapeuta Comportamental ABA · Neuropsicopedagogo · Psicanalista</p>
+          <h1 class="font-display font-semibold leading-[0.92] text-grafite mb-8 reveal-mask" style="font-size: clamp(3.4rem, 11vw, 8.5rem);">
+            Tadeu<br />França
+          </h1>
+          <p class="text-xl md:text-2xl text-grafite/80 leading-relaxed max-w-xl mb-10">
+            Desenvolvimento, comportamento e aprendizagem com acolhimento, experiência e estratégias individualizadas.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4">
+            <a href="https://wa.me/5511932201048?text=Ol%C3%A1%2C%20Tadeu!%20Conheci%20seu%20trabalho%20pelo%20site%20e%20gostaria%20de%20obter%20mais%20informa%C3%A7%C3%B5es%20sobre%20o%20atendimento." class="cta-whatsapp text-center font-semibold px-7 py-3.5 rounded-full">Quero conhecer o atendimento</a>
+            <a href="sobre.html" class="cta-ghost text-center font-semibold px-7 py-3.5 rounded-full">Conhecer minha trajetória</a>
+          </div>
+          <p class="mt-10 text-sm text-grafite/60">
+            Atendimento presencial em Itaquera e região da Zona Leste de São Paulo · Atendimento online
+          </p>
+        </div>
+        <div class="lg:col-span-5">
+          <div class="relative aspect-[4/5] rounded-[2rem] bg-terracota overflow-hidden flex items-center justify-center" role="img" aria-label="Espaço reservado para foto de Tadeu França">
+            <div class="absolute inset-0" style="background: radial-gradient(120% 120% at 30% 18%, #C8876E 0%, #A9604D 55%, #8f5040 100%);"></div>
+            <div class="relative text-center px-6">
+              <div class="mx-auto w-16 h-16 rounded-full border-2 border-offwhite/70 flex items-center justify-center mb-4">
+                <svg viewBox="0 0 24 24" fill="none" class="w-7 h-7 text-offwhite/90" stroke="currentColor" stroke-width="1.6">
+                  <path d="M3 8.5A1.5 1.5 0 0 1 4.5 7h2L8 5h8l1.5 2h2A1.5 1.5 0 0 1 21 8.5v9A1.5 1.5 0 0 1 19.5 19h-15A1.5 1.5 0 0 1 3 17.5z"/>
+                  <circle cx="12" cy="13" r="3.2"/>
+                </svg>
+              </div>
+              <p class="font-display text-offwhite/90 text-lg">Espaço para foto</p>
+              <p class="text-offwhite/60 text-sm mt-1">Tadeu França</p>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section class="section section--surface" aria-labelledby="consultorio-title">
-    <div class="container">
-      <div class="feature-list">
-        <div class="feature-list__title">
-          <p class="section__eyebrow">Por que consultório particular</p>
-          <h2 id="consultorio-title">O cuidado que um ambulatório nem sempre consegue oferecer</h2>
-          <p>Algumas coisas fazem diferença no dia a dia de um atendimento — e costumam faltar em estruturas maiores.</p>
+    <!-- QUEM É TADEU -->
+    <section data-od-id="quem-e" class="max-w-3xl mx-auto px-6 py-20 md:py-28 reveal">
+      <p class="eyebrow mb-5">Quem é Tadeu</p>
+      <h2 class="font-display font-semibold text-4xl md:text-5xl text-grafite mb-8 leading-tight">Uma trajetória de mais de três décadas</h2>
+      <p class="text-xl text-grafite/80 leading-relaxed">
+        Sou Tadeu França, Terapeuta Comportamental ABA, Neuropsicopedagogo Clínico e Psicanalista Clínico, com uma trajetória de mais de três décadas na área educacional e de desenvolvimento humano. Meu trabalho é voltado especialmente ao desenvolvimento, comportamento, aprendizagem e regulação emocional, com atenção especial às pessoas com TEA, TDAH, dificuldades de aprendizagem e às famílias que precisam de orientação e acolhimento.
+      </p>
+    </section>
+
+    <!-- PROPÓSITO (bloco cor cheia) -->
+    <section data-od-id="proposito" class="bg-terracota text-offwhite py-20 md:py-28 reveal">
+      <div class="max-w-4xl mx-auto px-6">
+        <p class="eyebrow text-offwhite/70 mb-6">Propósito</p>
+        <p class="font-display text-3xl md:text-5xl leading-[1.15]">
+          Meu trabalho busca acolher, compreender e desenvolver estratégias individualizadas para que cada pessoa possa avançar dentro de suas possibilidades, promovendo autonomia, desenvolvimento, aprendizagem, regulação comportamental e melhor qualidade de vida.
+        </p>
+      </div>
+    </section>
+
+    <!-- ÁREAS DE ATUAÇÃO -->
+    <section data-od-id="areas" class="max-w-3xl mx-auto px-6 py-20 md:py-28 reveal">
+      <p class="eyebrow mb-5">Áreas de atuação</p>
+      <h2 class="font-display font-semibold text-4xl md:text-5xl text-grafite mb-10 leading-tight">Atende onde o desenvolvimento encontra a pessoa</h2>
+      <div class="bento stagger">
+        <div class="bento-tile">Terapia Comportamental ABA</div>
+        <div class="bento-tile">TEA</div>
+        <div class="bento-tile">Neuropsicopedagogia Clínica</div>
+        <div class="bento-tile">TDAH</div>
+        <div class="bento-tile">Dificuldades de aprendizagem</div>
+        <div class="bento-tile">Psicanálise Clínica</div>
+      </div>
+      <a href="atendimentos.html" class="inline-block mt-10 text-terracota font-semibold hover:text-terracota-2">Ver todas as áreas de atendimento →</a>
+    </section>
+
+    <!-- DIFERENCIAL -->
+    <section data-od-id="diferencial" class="max-w-3xl mx-auto px-6 pb-20 md:pb-28 reveal">
+      <p class="eyebrow mb-5">Diferencial</p>
+      <p class="font-display text-3xl md:text-4xl text-terracota leading-snug">
+        Meu principal diferencial está na experiência de mais de três décadas na área pedagógica aliada à formação em ABA, Neuropsicopedagogia e Psicanálise, permitindo uma visão ampla da pessoa.
+      </p>
+    </section>
+
+    <!-- CONSULTÓRIO PARTICULAR -->
+    <section data-od-id="consultorio" class="bg-creme/70 py-20 md:py-28 reveal">
+      <div class="max-w-3xl mx-auto px-6">
+        <p class="eyebrow mb-5">Consultório particular</p>
+        <h2 class="font-display font-semibold text-4xl md:text-6xl text-grafite mb-8 leading-[1.05] max-w-2xl">
+          Um atendimento mais próximo, humano e individualizado
+        </h2>
+        <p class="text-xl text-grafite/80 leading-relaxed mb-12 max-w-2xl">
+          O atendimento em consultório particular permite construir um acompanhamento mais próximo, individualizado e cuidadoso, respeitando a história, as necessidades e o ritmo de cada paciente. A proposta é oferecer continuidade no atendimento, permitindo que o profissional acompanhe de perto a evolução de cada caso e desenvolva uma compreensão mais completa do paciente e de sua família.
+        </p>
+        <ol class="border-t border-areia/60">
+          <li class="flex gap-5 sm:gap-8 py-7 border-b border-areia/60">
+            <span class="font-display text-2xl md:text-3xl text-terracota-2 leading-none w-10 shrink-0">01</span>
+            <div>
+              <h3 class="font-display font-semibold text-2xl text-grafite mb-1">Ambiente mais acolhedor</h3>
+              <p class="text-grafite/75 leading-relaxed text-lg">Espaço pensado para proximidade, acolhimento e conforto.</p>
+            </div>
+          </li>
+          <li class="flex gap-5 sm:gap-8 py-7 border-b border-areia/60">
+            <span class="font-display text-2xl md:text-3xl text-terracota-2 leading-none w-10 shrink-0">02</span>
+            <div>
+              <h3 class="font-display font-semibold text-2xl text-grafite mb-1">Atendimento individualizado</h3>
+              <p class="text-grafite/75 leading-relaxed text-lg">Planejado conforme necessidades e objetivos de cada pessoa.</p>
+            </div>
+          </li>
+          <li class="flex gap-5 sm:gap-8 py-7 border-b border-areia/60">
+            <span class="font-display text-2xl md:text-3xl text-terracota-2 leading-none w-10 shrink-0">03</span>
+            <div>
+              <h3 class="font-display font-semibold text-2xl text-grafite mb-1">Continuidade com o mesmo profissional</h3>
+              <p class="text-grafite/75 leading-relaxed text-lg">Favorece vínculo, confiança e conhecimento aprofundado.</p>
+            </div>
+          </li>
+          <li class="flex gap-5 sm:gap-8 py-7 border-b border-areia/60">
+            <span class="font-display text-2xl md:text-3xl text-terracota-2 leading-none w-10 shrink-0">04</span>
+            <div>
+              <h3 class="font-display font-semibold text-2xl text-grafite mb-1">Devolutivas mais aprofundadas</h3>
+              <p class="text-grafite/75 leading-relaxed text-lg">Observações, avanços, dificuldades e próximos passos compartilhados com cuidado.</p>
+            </div>
+          </li>
+          <li class="flex gap-5 sm:gap-8 py-7 border-b border-areia/60">
+            <span class="font-display text-2xl md:text-3xl text-terracota-2 leading-none w-10 shrink-0">05</span>
+            <div>
+              <h3 class="font-display font-semibold text-2xl text-grafite mb-1">Relatórios mais elaborados</h3>
+              <p class="text-grafite/75 leading-relaxed text-lg">Quando necessário e dentro dos limites da atuação profissional.</p>
+            </div>
+          </li>
+          <li class="flex gap-5 sm:gap-8 py-7 border-b border-areia/60">
+            <span class="font-display text-2xl md:text-3xl text-terracota-2 leading-none w-10 shrink-0">06</span>
+            <div>
+              <h3 class="font-display font-semibold text-2xl text-grafite mb-1">Orientação mais próxima às famílias</h3>
+              <p class="text-grafite/75 leading-relaxed text-lg">Orientações individualizadas para o cotidiano.</p>
+            </div>
+          </li>
+        </ol>
+        <p class="mt-12 font-display text-2xl md:text-3xl text-grafite leading-snug max-w-2xl">
+          Mais do que oferecer um espaço para as sessões, a proposta é construir um acompanhamento baseado em vínculo, continuidade, escuta e atenção individualizada, colocando o paciente e sua família no centro do processo.
+        </p>
+      </div>
+    </section>
+
+    <!-- COMO FUNCIONA (preview) -->
+    <section data-od-id="como-funciona-preview" class="max-w-3xl mx-auto px-6 py-20 md:py-28 reveal">
+      <p class="eyebrow mb-5">Como funciona</p>
+      <h2 class="font-display font-semibold text-4xl md:text-5xl text-grafite mb-12 leading-tight">As primeiras etapas do acompanhamento</h2>
+      <ol class="space-y-10">
+        <li class="flex gap-6">
+          <span class="font-display text-3xl text-terracota-2 leading-none">01</span>
+          <div><h3 class="font-display font-semibold text-2xl text-grafite mb-2">Primeiro contato</h3>
+          <p class="text-grafite/75 leading-relaxed text-lg">O primeiro contato pode ocorrer pelo WhatsApp ou pelas redes sociais. Nesse momento são levantadas informações iniciais sobre a demanda e explicado como funciona o atendimento.</p></div>
+        </li>
+        <li class="flex gap-6">
+          <span class="font-display text-3xl text-terracota-2 leading-none">02</span>
+          <div><h3 class="font-display font-semibold text-2xl text-grafite mb-2">Entrevista inicial</h3>
+          <p class="text-grafite/75 leading-relaxed text-lg">Compreender a história do paciente, principais dificuldades, rotina, contexto familiar, contexto escolar ou profissional e os objetivos do acompanhamento.</p></div>
+        </li>
+        <li class="flex gap-6">
+          <span class="font-display text-3xl text-terracota-2 leading-none">03</span>
+          <div><h3 class="font-display font-semibold text-2xl text-grafite mb-2">Compreensão das necessidades</h3>
+          <p class="text-grafite/75 leading-relaxed text-lg">Por meio da escuta, observação, levantamento da história, análise das demandas apresentadas e, quando necessário, instrumentos e estratégias compatíveis com a atuação profissional.</p></div>
+        </li>
+        <li class="flex gap-6">
+          <span class="font-display text-3xl text-terracota-2 leading-none">04</span>
+          <div><h3 class="font-display font-semibold text-2xl text-grafite mb-2">Planejamento individualizado</h3>
+          <p class="text-grafite/75 leading-relaxed text-lg">Definido a partir das necessidades, prioridades e objetivos identificados no processo inicial.</p></div>
+        </li>
+      </ol>
+      <a href="como-funciona.html" class="inline-block mt-12 text-terracota font-semibold hover:text-terracota-2">Ver todas as etapas →</a>
+    </section>
+
+    <!-- LOCALIZAÇÃO MINI -->
+    <section data-od-id="localizacao-mini" class="bg-creme/70 py-14 md:py-20 reveal">
+      <div class="max-w-3xl mx-auto px-6 flex flex-col sm:flex-row sm:items-center justify-between gap-5">
+        <div>
+          <p class="eyebrow mb-3">Localização</p>
+          <p class="text-lg text-grafite/80">Av. Maria Luiza Americano, 103 — Parque do Carmo, São Paulo/SP — CEP 08275-001</p>
         </div>
-        <ul class="feature-list__items">
-          <li><div><h3>Tempo real de sessão</h3><p>Cada encontro tem o tempo necessário. Sem fila, sem pressa de encerrar.</p></div></li>
-          <li><div><h3>Continuidade com o mesmo profissional</h3><p>Você é acompanhado por quem já conhece sua trajetória do início ao fim.</p></div></li>
-          <li><div><h3>Escuta sem julgamento</h3><p>Um lugar para falar de tudo — inclusive do que parece pequeno ou difícil.</p></div></li>
-          <li><div><h3>Plano de tratamento individual</h3><p>Definido com você, revisado quando fizer sentido, nunca imposto.</p></div></li>
-          <li><div><h3>Possibilidade de reembolso</h3><p>Atendimento compatível com planos de saúde que reembolsam entre 12 a 18 sessões.</p></div></li>
+        <a href="contato.html" class="cta-ghost font-semibold px-5 py-2.5 rounded-full whitespace-nowrap">Ver no Contato →</a>
+      </div>
+    </section>
+
+    <!-- CTA FINAL -->
+    <section data-od-id="cta-final" class="max-w-3xl mx-auto px-6 py-24 md:py-32 reveal text-center">
+      <p class="font-display text-3xl md:text-4xl leading-snug text-grafite max-w-2xl mx-auto mb-12">
+        Você não precisa chegar com todas as respostas. Muitas famílias chegam justamente porque estão confusas, preocupadas ou não sabem qual caminho seguir. O primeiro passo pode ser simplesmente conversar.
+      </p>
+      <a href="https://wa.me/5511932201048?text=Ol%C3%A1%2C%20Tadeu!%20Conheci%20seu%20trabalho%20pelo%20site%20e%20gostaria%20de%20obter%20mais%20informa%C3%A7%C3%B5es%20sobre%20o%20atendimento." class="cta-whatsapp inline-block font-semibold px-9 py-4 rounded-full text-lg">Quero conhecer o atendimento</a>
+    </section>
+
+  </main>
+
+  <footer class="bg-grafite text-offwhite/90">
+    <div class="max-w-6xl mx-auto px-6 py-16 grid md:grid-cols-3 gap-10">
+      <div>
+        <p class="font-display text-2xl text-offwhite mb-4">Tadeu França</p>
+        <p class="text-sm text-offwhite/70 leading-relaxed">Terapeuta Comportamental ABA, Neuropsicopedagogo Clínico e Institucional, Psicanalista Clínico. Itaquera — São Paulo/SP.</p>
+      </div>
+      <div>
+        <p class="eyebrow text-terracota-2 mb-4">Contato</p>
+        <ul class="text-sm space-y-2 text-offwhite/80">
+          <li>WhatsApp: (11) 93220-1048</li>
+          <li>E-mail: terapeutatadeufranca@gmail.com</li>
+          <li>Instagram: @tadeufranca_terapeuta</li>
+        </ul>
+      </div>
+      <div>
+        <p class="eyebrow text-terracota-2 mb-4">Navegação</p>
+        <ul class="text-sm space-y-2 text-offwhite/80">
+          <li><a href="index.html" class="hover:text-offwhite">Início</a></li>
+          <li><a href="sobre.html" class="hover:text-offwhite">Sobre &amp; Formação</a></li>
+          <li><a href="atendimentos.html" class="hover:text-offwhite">Atendimentos</a></li>
+          <li><a href="como-funciona.html" class="hover:text-offwhite">Como Funciona</a></li>
+          <li><a href="contato.html" class="hover:text-offwhite">Contato</a></li>
         </ul>
       </div>
     </div>
-  </section>
-
-  <section class="section" aria-labelledby="como-title">
-    <div class="container">
-      <div class="section__head">
-        <p class="section__eyebrow">Na prática</p>
-        <h2 id="como-title">Como funciona, em poucas etapas</h2>
-        <p>Um percurso simples, pensado para você entrar com segurança — do primeiro contato à sessão regular.</p>
-      </div>
-      <div class="steps-rail">
-        <div class="rail-step"><div class="rail-step__num">1</div><h3>Conversa inicial</h3><p>Um contato breve para entendermos se faz sentido seguir.</p></div>
-        <div class="rail-step"><div class="rail-step__num">2</div><h3>Primeira sessão</h3><p>Conhecimento mútuo e escuta do que traz você aqui.</p></div>
-        <div class="rail-step"><div class="rail-step__num">3</div><h3>Plano individual</h3><p>Definimos juntos objetivos e frequência.</p></div>
-        <div class="rail-step"><div class="rail-step__num">4</div><h3>Acompanhamento</h3><p>Encontros regulares, no seu ritmo.</p></div>
-      </div>
-      <p style="margin-top:1.5rem"><a class="btn btn--ghost" href="como-funciona.html">Ver o passo a passo completo</a></p>
+    <div class="border-t border-offwhite/15 py-5 text-center text-xs text-offwhite/50">
+      © <span id="ano"></span> Tadeu França. Todos os direitos reservados.
     </div>
-  </section>
+  </footer>
 
-  <section class="section section--surface" aria-labelledby="onde-title">
-    <div class="container">
-      <div class="locbar">
-        <div>
-          <p class="section__eyebrow" style="margin-bottom:0.4rem">Onde atendo</p>
-          <h2 id="onde-title" style="font-size:1.4rem">Itaquera · Zona Leste de São Paulo</h2>
-          <address>Consultório particular, com fácil acesso e espaço acolhedor para sessões presenciais.</address>
-        </div>
-        <a class="btn btn--solid" href="contato.html">Como chegar e agendar</a>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" aria-labelledby="fechamento-title">
-    <div class="container">
-      <div class="closing">
-        <p id="fechamento-title">O primeiro passo costuma ser o mais difícil. Você não precisa dar todos de uma vez.</p>
-        <a class="btn btn--solid" href="contato.html">Agendar conversa inicial</a>
-      </div>
-    </div>
-  </section>
-</main>
-
-<footer class="footer">
-  <div class="container footer__grid">
-    <div>
-      <div class="footer__brand">Tadeu França</div>
-      <p class="footer__meta">Psicólogo · Terapia individual em consultório particular.<br>Itaquera, Zona Leste de São Paulo.</p>
-    </div>
-    <div>
-      <ul class="footer__nav">
-        <li><a href="index.html">Início</a></li>
-        <li><a href="sobre.html">Sobre &amp; Formação</a></li>
-        <li><a href="atendimentos.html">Atendimentos</a></li>
-        <li><a href="como-funciona.html">Como Funciona</a></li>
-        <li><a href="contato.html">Contato</a></li>
-      </ul>
-    </div>
-  </div>
-  <div class="container footer__bottom">
-    <p>© <span data-year>2026</span> Tadeu França. Todos os direitos reservados.</p>
-  </div>
-</footer>
-
-<script src="script.js"></script>
+  <script src="assets/main.js" defer></script>
 </body>
 </html>

@@ -1,112 +1,173 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Como Funciona — Tadeu França</title>
-<meta name="description" content="Passo a passo do atendimento psicológico em consultório particular: da conversa inicial à sessão regular.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,460;9..144,560&family=Mulish:wght@400;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles-base.css">
-<link rel="stylesheet" href="styles-components.css">
+  <script>document.documentElement.classList.add('js');</script>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Como Funciona — Tadeu França</title>
+  <meta name="description" content="As etapas do acompanhamento com Tadeu França — do primeiro contato à participação da família." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Mulish:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            terracota: '#A9604D',
+            'terracota-2': '#C8876E',
+            areia: '#D9B9A1',
+            creme: '#F1E4D4',
+            offwhite: '#FBF7F1',
+            grafite: '#3A2E2A'
+          },
+          fontFamily: {
+            display: ['Fraunces', 'Georgia', 'serif'],
+            body: ['Mulish', 'system-ui', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="assets/styles.css" />
 </head>
-<body>
-<div class="thread" aria-hidden="true"><span class="thread__progress"></span></div>
+<body class="font-body antialiased">
+  <div id="progress"></div>
 
-<header class="nav">
-  <div class="nav__inner">
-    <a class="nav__brand" href="index.html">Tadeu&nbsp;França</a>
-    <button class="nav__toggle" aria-expanded="false" aria-controls="menu" aria-label="Abrir menu">☰</button>
-    <div class="nav__menu-wrap" id="menu">
-      <nav class="menu" aria-label="Navegação principal">
-        <a href="index.html">Início</a>
-        <a href="sobre.html">Sobre &amp; Formação</a>
-        <a href="atendimentos.html">Atendimentos</a>
-        <a href="como-funciona.html" class="is-current">Como Funciona</a>
-        <a href="contato.html">Contato</a>
-      </nav>
-      <a class="btn btn--solid nav__cta" href="contato.html">Agendar conversa</a>
-    </div>
-  </div>
-</header>
-
-<main>
-  <section class="hero hero--page" aria-labelledby="cf-title">
-    <div class="hero__inner">
-      <p class="hero__eyebrow">Como Funciona</p>
-      <h1 id="cf-title">Do primeiro contato à sessão regular.</h1>
-      <p class="hero__lead">Um percurso simples e transparente. O fio abaixo acompanha você por cada etapa — sem surpresas, sem pressa.</p>
-    </div>
-  </section>
-
-  <div class="quote" aria-hidden="true">
-    <blockquote>O atendimento começa quando você se sente seguro para chegar.</blockquote>
-    <cite>Princípio de acolhimento</cite>
-  </div>
-
-  <section class="section" aria-labelledby="etapas-title">
-    <div class="container">
-      <div class="section__head">
-        <p class="section__eyebrow">O percurso</p>
-        <h2 id="etapas-title">Sete etapas que costumam fazer sentido</h2>
-      </div>
-      <div class="steps">
-        <article class="step reveal"><span class="step__num">1</span><h3>Conversa inicial</h3><p>Um contato breve — por WhatsApp ou formulário — para entendermos se faz sentido seguir.</p></article>
-        <article class="step reveal"><span class="step__num">2</span><h3>Primeira sessão</h3><p>Conhecimento mútuo e escuta do que traz você aqui. Nada de compromisso imediato.</p></article>
-        <article class="step reveal"><span class="step__num">3</span><h3>Escuta e mapeamento</h3><p>Organizamos juntos o que está em jogo, sem pressa de rotular.</p></article>
-        <article class="step reveal"><span class="step__num">4</span><h3>Plano individual</h3><p>Definimos objetivos, frequência e formato — revisados quando necessário.</p></article>
-        <article class="step reveal"><span class="step__num">5</span><h3>Início do acompanhamento</h3><p>Encontros regulares, no seu ritmo, em consultório particular.</p></article>
-        <article class="step reveal"><span class="step__num">6</span><h3>Revisões ao longo do caminho</h3><p>Paramos para olhar o que mudou e ajustar o plano, se precisar.</p></article>
-        <article class="step reveal"><span class="step__num">7</span><h3>Encerramento ou pausa</h3><p>Quando fizer sentido, com espaço para retomar quando necessário.</p></article>
-      </div>
-    </div>
-  </section>
-
-  <section class="section section--surface" aria-labelledby="principio-title">
-    <div class="container">
-      <div class="split">
-        <div class="split__lead">Um princípio</div>
-        <div class="split__body">
-          <h2 id="principio-title" class="visually-hidden">Um princípio</h2>
-          <p>Não há fórmula pronta. Cada pessoa reorganiza a própria vida no tempo que for preciso — e o acompanhamento existe para sustentar esse processo, não para apressá-lo.</p>
-          <p>Por isso o plano é sempre individual, e as etapas acima servem de guia, não de regra.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" aria-labelledby="fechamento-title">
-    <div class="container">
-      <div class="closing">
-        <p id="fechamento-title">Pronto para o primeiro contato? Ele é leve — e sem compromisso.</p>
-        <a class="btn btn--solid" href="contato.html">Agendar conversa inicial</a>
-      </div>
-    </div>
-  </section>
-</main>
-
-<footer class="footer">
-  <div class="container footer__grid">
-    <div>
-      <div class="footer__brand">Tadeu França</div>
-      <p class="footer__meta">Psicólogo · Terapia individual em consultório particular.<br>Itaquera, Zona Leste de São Paulo.</p>
-    </div>
-    <div>
-      <ul class="footer__nav">
-        <li><a href="index.html">Início</a></li>
-        <li><a href="sobre.html">Sobre &amp; Formação</a></li>
-        <li><a href="atendimentos.html">Atendimentos</a></li>
-        <li><a href="como-funciona.html">Como Funciona</a></li>
-        <li><a href="contato.html">Contato</a></li>
+  <header class="sticky top-0 z-50 bg-offwhite/90 backdrop-blur border-b border-areia/50">
+    <nav class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+      <a href="index.html" class="font-display text-lg font-semibold text-terracota">Tadeu França</a>
+      <ul class="hidden md:flex items-center gap-8 text-sm">
+        <li><a href="index.html" class="nav-link text-grafite/80 hover:text-grafite">Início</a></li>
+        <li><a href="sobre.html" class="nav-link text-grafite/80 hover:text-grafite">Sobre &amp; Formação</a></li>
+        <li><a href="atendimentos.html" class="nav-link text-grafite/80 hover:text-grafite">Atendimentos</a></li>
+        <li><a href="como-funciona.html" aria-current="page" class="nav-link text-grafite">Como Funciona</a></li>
+        <li><a href="contato.html" class="nav-link text-grafite/80 hover:text-grafite">Contato</a></li>
       </ul>
-    </div>
-  </div>
-  <div class="container footer__bottom">
-    <p>© <span data-year>2026</span> Tadeu França. Todos os direitos reservados.</p>
-  </div>
-</footer>
+      <a href="contato.html" class="cta-whatsapp text-sm font-semibold px-4 py-2 rounded-full md:hidden">Contato</a>
+    </nav>
+    <nav class="md:hidden border-t border-areia/50 px-6 py-2 flex gap-4 overflow-x-auto text-sm">
+      <a href="index.html" class="text-grafite/70 whitespace-nowrap">Início</a>
+      <a href="sobre.html" class="text-grafite/70 whitespace-nowrap">Sobre</a>
+      <a href="atendimentos.html" class="text-grafite/70 whitespace-nowrap">Atendimentos</a>
+      <a href="como-funciona.html" class="text-terracota font-semibold whitespace-nowrap">Como Funciona</a>
+      <a href="contato.html" class="text-grafite/70 whitespace-nowrap">Contato</a>
+    </nav>
+  </header>
 
-<script src="script.js"></script>
+  <main id="content">
+
+    <!-- INTRO -->
+    <section data-od-id="intro" class="max-w-3xl mx-auto px-6 pt-24 pb-12 md:pt-32">
+      <p class="eyebrow mb-5">Como funciona</p>
+      <h1 class="font-display font-semibold leading-[1.05] text-5xl md:text-7xl text-grafite mb-8">
+        Um caminho construído com a pessoa
+      </h1>
+      <p class="text-xl text-grafite/80 leading-relaxed max-w-2xl">
+        O acompanhamento segue etapas que respeitam a história, as necessidades e o ritmo de cada paciente.
+      </p>
+    </section>
+
+    <!-- ETAPAS -->
+    <section data-od-id="etapas" class="max-w-3xl mx-auto px-6 pb-16">
+      <div class="cf-track" id="cfTrack">
+        <div class="cf-line" aria-hidden="true"></div>
+        <div class="cf-fill" id="cfFill" aria-hidden="true"></div>
+
+        <ol class="space-y-12 stagger">
+          <li class="relative pl-16 sm:pl-20">
+            <span class="absolute left-0 top-0 w-14 h-14 rounded-full bg-offwhite border border-areia flex items-center justify-center font-display text-2xl text-terracota">01</span>
+            <h2 class="font-display font-semibold text-2xl md:text-3xl text-grafite mb-2">Primeiro contato</h2>
+            <p class="text-grafite/80 leading-relaxed text-lg">O primeiro contato pode ocorrer pelo WhatsApp ou pelas redes sociais. Nesse momento são levantadas informações iniciais sobre a demanda e explicado como funciona o atendimento.</p>
+          </li>
+          <li class="relative pl-16 sm:pl-20">
+            <span class="absolute left-0 top-0 w-14 h-14 rounded-full bg-offwhite border border-areia flex items-center justify-center font-display text-2xl text-terracota">02</span>
+            <h2 class="font-display font-semibold text-2xl md:text-3xl text-grafite mb-2">Entrevista inicial</h2>
+            <p class="text-grafite/80 leading-relaxed text-lg">Compreender a história do paciente, principais dificuldades, rotina, contexto familiar, contexto escolar ou profissional e os objetivos do acompanhamento.</p>
+          </li>
+          <li class="relative pl-16 sm:pl-20">
+            <span class="absolute left-0 top-0 w-14 h-14 rounded-full bg-offwhite border border-areia flex items-center justify-center font-display text-2xl text-terracota">03</span>
+            <h2 class="font-display font-semibold text-2xl md:text-3xl text-grafite mb-2">Compreensão das necessidades</h2>
+            <p class="text-grafite/80 leading-relaxed text-lg">Por meio da escuta, observação, levantamento da história, análise das demandas apresentadas e, quando necessário, instrumentos e estratégias compatíveis com a atuação profissional.</p>
+          </li>
+          <li class="relative pl-16 sm:pl-20">
+            <span class="absolute left-0 top-0 w-14 h-14 rounded-full bg-offwhite border border-areia flex items-center justify-center font-display text-2xl text-terracota">04</span>
+            <h2 class="font-display font-semibold text-2xl md:text-3xl text-grafite mb-2">Planejamento individualizado</h2>
+            <p class="text-grafite/80 leading-relaxed text-lg">Definido a partir das necessidades, prioridades e objetivos identificados no processo inicial.</p>
+          </li>
+          <li class="relative pl-16 sm:pl-20">
+            <span class="absolute left-0 top-0 w-14 h-14 rounded-full bg-offwhite border border-areia flex items-center justify-center font-display text-2xl text-terracota">05</span>
+            <h2 class="font-display font-semibold text-2xl md:text-3xl text-grafite mb-2">Sessões</h2>
+            <p class="text-grafite/80 leading-relaxed text-lg">Estruturadas de acordo com o perfil e os objetivos do paciente: estratégias comportamentais, atividades direcionadas, orientação, desenvolvimento de habilidades e acompanhamento das dificuldades apresentadas.</p>
+          </li>
+          <li class="relative pl-16 sm:pl-20">
+            <span class="absolute left-0 top-0 w-14 h-14 rounded-full bg-offwhite border border-areia flex items-center justify-center font-display text-2xl text-terracota">06</span>
+            <h2 class="font-display font-semibold text-2xl md:text-3xl text-grafite mb-2">Acompanhamento da evolução</h2>
+            <p class="text-grafite/80 leading-relaxed text-lg">Observando mudanças comportamentais, desenvolvimento de habilidades, dificuldades persistentes e objetivos alcançados.</p>
+          </li>
+          <li class="relative pl-16 sm:pl-20">
+            <span class="absolute left-0 top-0 w-14 h-14 rounded-full bg-offwhite border border-areia flex items-center justify-center font-display text-2xl text-terracota">07</span>
+            <h2 class="font-display font-semibold text-2xl md:text-3xl text-grafite mb-2">Participação da família</h2>
+            <p class="text-grafite/80 leading-relaxed text-lg">Muito importante, especialmente no atendimento infantil. Os pais podem receber orientações para compreender melhor os comportamentos e utilizar estratégias adequadas no cotidiano.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- PRINCÍPIO -->
+    <section data-od-id="principio" class="bg-creme/70 py-20 md:py-28 reveal">
+      <div class="max-w-3xl mx-auto px-6 text-center">
+        <p class="eyebrow mb-6">Princípio do atendimento</p>
+        <blockquote class="font-display text-2xl md:text-4xl text-grafite leading-snug">
+          “O atendimento não é baseado em fórmulas prontas. Cada pessoa é única e o planejamento precisa respeitar sua história, suas necessidades e seu ritmo de desenvolvimento.”
+        </blockquote>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section data-od-id="cta" class="max-w-3xl mx-auto px-6 py-16 text-center reveal">
+      <a href="https://wa.me/5511932201048?text=Ol%C3%A1%2C%20Tadeu!%20Conheci%20seu%20trabalho%20pelo%20site%20e%20gostaria%20de%20obter%20mais%20informa%C3%A7%C3%B5es%20sobre%20o%20atendimento." class="cta-whatsapp inline-block font-semibold px-8 py-4 rounded-full text-lg">Agendar uma conversa</a>
+    </section>
+
+  </main>
+
+  <footer class="bg-grafite text-offwhite/90">
+    <div class="max-w-6xl mx-auto px-6 py-16 grid md:grid-cols-3 gap-10">
+      <div>
+        <p class="font-display text-2xl text-offwhite mb-4">Tadeu França</p>
+        <p class="text-sm text-offwhite/70 leading-relaxed">Terapeuta Comportamental ABA, Neuropsicopedagogo Clínico e Institucional, Psicanalista Clínico. Itaquera — São Paulo/SP.</p>
+      </div>
+      <div>
+        <p class="eyebrow text-terracota-2 mb-4">Contato</p>
+        <ul class="text-sm space-y-2 text-offwhite/80">
+          <li>WhatsApp: (11) 93220-1048</li>
+          <li>E-mail: terapeutatadeufranca@gmail.com</li>
+          <li>Instagram: @tadeufranca_terapeuta</li>
+        </ul>
+      </div>
+      <div>
+        <p class="eyebrow text-terracota-2 mb-4">Navegação</p>
+        <ul class="text-sm space-y-2 text-offwhite/80">
+          <li><a href="index.html" class="hover:text-offwhite">Início</a></li>
+          <li><a href="sobre.html" class="hover:text-offwhite">Sobre &amp; Formação</a></li>
+          <li><a href="atendimentos.html" class="hover:text-offwhite">Atendimentos</a></li>
+          <li><a href="como-funciona.html" class="hover:text-offwhite">Como Funciona</a></li>
+          <li><a href="contato.html" class="hover:text-offwhite">Contato</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="border-t border-offwhite/15 py-5 text-center text-xs text-offwhite/50">
+      © <span id="ano"></span> Tadeu França. Todos os direitos reservados.
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('ano').textContent = new Date().getFullYear();
+
+    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  <script src="assets/main.js" defer></script>
 </body>
 </html>
