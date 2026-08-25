@@ -96,12 +96,12 @@ body{ background:var(--offwhite); color:var(--grafite); -webkit-font-smoothing:a
 .valores-tape{ overflow:hidden; width:100%; }
 .valores-track{
   display:inline-flex; white-space:nowrap; align-items:center;
-  animation:vt-scroll 32s linear infinite; will-change:transform;
+  animation:vt-scroll 75s linear infinite; will-change:transform;
 }
 .valores-track--rev{ animation-direction:reverse; }
 @keyframes vt-scroll{ from{ transform:translateX(0); } to{ transform:translateX(-50%); } }
 .vt-item{ font-family:'Fraunces', Georgia, serif; font-weight:500; font-size:1.25rem; padding:.55rem 0; }
-.vt-sep{ padding:0 1.5rem; opacity:.55; font-size:1.1rem; }
+.vt-sep{ padding:0 1.5rem; color:var(--terracota); font-size:1.1rem; }
 
 /* Fio condutor progressivo (como-funciona) */
 .cf-track{ position:relative; }
