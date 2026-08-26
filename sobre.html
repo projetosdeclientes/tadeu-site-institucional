@@ -1,187 +1,224 @@
-﻿<!doctype html>
-<html lang="pt-BR">
+<!doctype html>
+<html lang="pt-BR" class="scroll-smooth">
 <head>
-  <script>document.documentElement.classList.add('js');</script>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Sobre &amp; FormaÃ§Ã£o â€” Tadeu FranÃ§a</title>
-  <meta name="description" content="TrajetÃ³ria, forma de trabalhar e formaÃ§Ã£o de Tadeu FranÃ§a â€” Terapeuta Comportamental ABA, Neuropsicopedagogo ClÃ­nico e Psicanalista ClÃ­nico." />
+  <title>Sobre Tadeu França trajetória em educação, ABA e psicanálise</title>
+  <meta name="description" content="Conheça a trajetória de Tadeu: mais de trinta anos em educação, ABA, neuropsicopedagogia clínica e psicanálise. Consultório particular em Parque do Carmo, São Paulo." />
+  <meta name="robots" content="index, follow" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Mulish:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            terracota: '#A9604D',
-            'terracota-2': '#C8876E',
-            areia: '#D9B9A1',
-            creme: '#F1E4D4',
-            offwhite: '#FBF7F1',
-            grafite: '#3A2E2A'
-          },
-          fontFamily: {
-            display: ['Fraunces', 'Georgia', 'serif'],
-            body: ['Mulish', 'system-ui', 'sans-serif']
-          }
-        }
-      }
+      theme: { extend: {
+        colors: { terra:'#A9604D', terra2:'#C8876E', areia:'#D9B9A1', creme:'#F1E4D4', off:'#FBF7F1', tinta:'#3F3935' },
+        fontFamily: { display:['"Cormorant Garamond"','serif'], body:['Manrope','sans-serif'] }
+      } }
     };
   </script>
-  <link rel="stylesheet" href="assets/styles.css" />
+  <style>
+    body { background:#FBF7F1; color:#3F3935; -webkit-font-smoothing:antialiased; }
+    .font-display { font-family:'"Cormorant Garamond"', serif; }
+
+    .nav-link { position:relative; transition:color .25s; }
+    .nav-link:hover, .nav-link.active { color:#A9604D; }
+    .nav-link::after { content:''; position:absolute; left:0; right:0; bottom:-6px; height:1.5px; background:#A9604D; transform:scaleX(0); transform-origin:left; transition:transform .3s ease; }
+    .nav-link:hover::after, .nav-link.active::after { transform:scaleX(1); }
+
+    .underline-hover { position:relative; }
+    .underline-hover::after { content:''; position:absolute; left:0; bottom:-2px; height:1px; width:0; background:currentColor; transition:width .3s; }
+    .underline-hover:hover::after { width:100%; }
+
+    .drop-cap::first-letter { font-family:'Cormorant Garamond', serif; float:left; font-size:3.6rem; line-height:.78; padding:0.08em 0.14em 0 0; color:#A9604D; font-weight:600; }
+
+    .marquee { display:flex; width:max-content; animation: marquee 30s linear infinite; }
+    .marquee:hover { animation-play-state: paused; }
+    @keyframes marquee { from { transform:translateX(0); } to { transform:translateX(-50%); } }
+
+    .reveal { opacity:0; transform:translateY(22px); transition:opacity .7s ease, transform .7s ease; }
+    .reveal.in { opacity:1; transform:none; }
+
+    #gallery { display:flex; width:max-content; will-change:transform; }
+    #gallery.dragging { cursor:grabbing; }
+
+    @media (prefers-reduced-motion: reduce) {
+      .marquee { animation:none; }
+      .reveal { opacity:1 !important; transform:none !important; transition:none !important; }
+      html { scroll-behavior:auto; }
+    }
+    @keyframes ruleDraw { from { transform:scaleX(0); } to { transform:scaleX(1); } }
+    h2.font-display.text-tinta::after {
+      content:''; display:block; width:54px; height:2px; margin-top:14px;
+      background:linear-gradient(90deg,#A9604D,#C8876E);
+      transform:scaleX(0); transform-origin:left; animation:ruleDraw .8s ease .25s forwards;
+    }
+    @keyframes ctaPulse { 0%,100% { box-shadow:0 0 0 0 rgba(169,96,77,.45); } 50% { box-shadow:0 0 0 14px rgba(169,96,77,0); } }
+    .cta-pulse { animation:ctaPulse 2.6s ease-in-out infinite; }
+    .faq-item { transition:background-color .25s ease; }
+    .faq-item:hover { background-color:rgba(217,185,161,.16); }
+    @media (prefers-reduced-motion: reduce) {
+      .nav-link::after { transform:none; }
+      h2.font-display.text-tinta::after { animation:none; transform:scaleX(1); }
+      .cta-pulse { animation:none; }
+    }
+  </style>
 </head>
-<body class="font-body antialiased bg-offwhite text-grafite">
-  <div id="progress"></div>
 
-  <main id="content">
+<body class="font-body">
 
-    <!-- HERO (layout MinimalistHero) -->
-    <section data-od-id="hero" class="relative flex h-screen w-full flex-col items-center justify-between overflow-hidden bg-offwhite px-6 py-8 md:px-12 md:py-12">
-          <p class="mt-3 text-sm text-grafite/60">de atuaÃ§Ã£o em desenvolvimento humano</p>
+  <header class="fixed inset-x-0 top-0 z-40 border-b border-areia/40 bg-off/85 backdrop-blur-sm">
+    <div class="mx-auto flex h-16 max-w-7xl items-center justify-between px-8 md:px-12">
+      <a href="index.html" class="font-display text-2xl tracking-wide text-tinta">Tadeu França</a>
+      <nav class="hidden items-center gap-8 text-sm md:flex">
+        <a href="index.html" class="nav-link">Início</a>
+        <a href="sobre.html" class="nav-link active">Sobre</a>
+        <a href="atendimentos.html" class="nav-link">Atendimento</a>
+        
+        <a href="como-funciona.html" class="nav-link">Perguntas</a>
+        <a href="contato.html" class="nav-link">Contato</a>
+      </nav>
+      <a href="https://wa.me/5511932201048?text=Ol%C3%A1%2C%20gostaria%20de%20conversar%20sobre%20meu%20caso." target="_blank" rel="noopener" class="hidden items-center gap-2 rounded-full bg-terra px-5 py-2.5 text-sm font-semibold text-off transition-colors hover:bg-terra2 md:inline-flex">WhatsApp</a>
+      <button id="menu-btn" aria-label="Abrir menu" class="flex h-10 w-10 items-center justify-center text-tinta md:hidden">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+    </div>
+    <div id="mobile-menu" class="hidden border-t border-areia/40 bg-off md:hidden">
+      <nav class="flex flex-col px-6 py-3 text-sm">
+        <a href="index.html" class="nav-link border-b border-areia/30 py-3">Início</a>
+        <a href="sobre.html" class="nav-link active border-b border-areia/30 py-3">Sobre</a>
+        <a href="atendimentos.html" class="nav-link border-b border-areia/30 py-3">Atendimento</a>
+        
+        <a href="como-funciona.html" class="nav-link border-b border-areia/30 py-3">Perguntas</a>
+        <a href="contato.html" class="nav-link py-3">Contato</a>
+      </nav>
+    </div>
+  </header>
+
+
+
+  <main class="pt-16">
+
+    <!-- NARRATIVA -->
+    <section data-od-id="sobre-narrativa" class="px-6 py-24 md:px-10">
+      <div class="mx-auto ">
+        <h1 class="font-display text-[clamp(2.5rem,6vw,4.5rem)] text-tinta">Sobre</h1>
+        <p class="drop-cap mt-8 text-lg leading-relaxed text-tinta/85">Tadeu construiu sua trajetória ao longo de mais de trinta anos, começando na educação como pedagogo e professor e se aprofundando em ABA, neuropsicopedagogia clínica e psicanálise.</p>
+      </div>
+    </section>
+
+    <!-- FORMAÇÃO MARQUEE -->
+    <section data-od-id="sobre-formacao" class="overflow-hidden border-y border-areia/40 py-16" aria-label="Formação">
+      <div class="marquee">
+        <div class="flex items-center gap-10 whitespace-nowrap px-5 text-lg text-tinta/70">
+          <span>ABA</span><span class="text-areia">·</span>
+          <span>Neuropsicopedagogia Clínica</span><span class="text-areia">·</span>
+          <span>Psicanálise Clínica</span><span class="text-areia">·</span>
+          <span>Pedagogia</span><span class="text-areia">·</span>
+          <span>Magistério</span><span class="text-areia">·</span>
+          <span>Ludopedagogia</span><span class="text-areia">·</span>
+          <span>Neuroanatomia Aplicada</span><span class="text-areia">·</span>
+          <span>Práticas Pedagógicas Inclusivas</span>
         </div>
-        <div class="lg:col-span-8">
-          <h2 class="font-display font-semibold text-3xl md:text-4xl text-grafite mb-6">TrajetÃ³ria profissional</h2>
-          <p class="text-xl text-grafite/80 leading-relaxed">
-            Minha trajetÃ³ria profissional estÃ¡ ligada hÃ¡ mais de trÃªs dÃ©cadas Ã  educaÃ§Ã£o, ao desenvolvimento humano e ao acompanhamento de pessoas. Ao longo dessa caminhada, atuei em diferentes contextos educacionais e fui ampliando minha formaÃ§Ã£o para compreender melhor as dificuldades de aprendizagem, o comportamento e o desenvolvimento. Essa experiÃªncia me levou a aprofundar meus estudos em ABA, Neuropsicopedagogia ClÃ­nica e PsicanÃ¡lise ClÃ­nica, unindo minha experiÃªncia pedagÃ³gica Ã  atuaÃ§Ã£o terapÃªutica.
-          </p>
+        <div class="flex items-center gap-10 whitespace-nowrap px-5 text-lg text-tinta/70" aria-hidden="true">
+          <span>ABA</span><span class="text-areia">·</span>
+          <span>Neuropsicopedagogia Clínica</span><span class="text-areia">·</span>
+          <span>Psicanálise Clínica</span><span class="text-areia">·</span>
+          <span>Pedagogia</span><span class="text-areia">·</span>
+          <span>Magistério</span><span class="text-areia">·</span>
+          <span>Ludopedagogia</span><span class="text-areia">·</span>
+          <span>Neuroanatomia Aplicada</span><span class="text-areia">·</span>
+          <span>Práticas Pedagógicas Inclusivas</span>
         </div>
       </div>
     </section>
 
-    <!-- O QUE ME LEVOU -->
-    <section data-od-id="o-que-me-levou" class="bg-creme/70 py-16 md:py-20">
-      <div class="px-6">
-        <h2 class="font-display font-semibold text-3xl md:text-4xl text-grafite mb-6">O que me levou a escolher essa Ã¡rea</h2>
-        <p class="text-xl text-grafite/80 leading-relaxed">
-          A experiÃªncia dentro da educaÃ§Ã£o mostrou-me que muitas dificuldades apresentadas por crianÃ§as, adolescentes e adultos nÃ£o podem ser compreendidas apenas pelo aspecto acadÃªmico. Ã‰ necessÃ¡rio olhar para o comportamento, as emoÃ§Ãµes, o ambiente familiar, a aprendizagem e a individualidade de cada pessoa.
-        </p>
-      </div>
-    </section>
-
-    <!-- O QUE ME MOTIVA -->
-    <section data-od-id="o-que-me-motiva" class="px-6 py-16 md:py-20">
-      <p class="eyebrow mb-5">O que me motiva</p>
-      <p class="font-display text-3xl md:text-4xl text-terracota leading-snug">
-        Ver pequenas conquistas se transformarem em grandes mudanÃ§as na vida do paciente e da famÃ­lia. Muitas vezes, aquilo que parece uma pequena evoluÃ§Ã£o representa uma enorme vitÃ³ria para uma famÃ­lia.
+    <!-- MODELO -->
+    <section data-od-id="sobre-modelo" class="px-6 py-24 md:px-10">
+      <p class="reveal mx-auto  font-display text-[clamp(1.5rem,4vw,2.5rem)] leading-snug text-tinta">
+        Um consultório particular significa continuidade: o mesmo profissional do início ao fim, com proximidade real com você e sua família.
       </p>
     </section>
 
-    <!-- FORMA DE TRABALHAR -->
-    <section data-od-id="forma-de-trabalhar" class="bg-creme/70 py-16 md:py-20">
-      <div class="px-6">
-        <div class="grid gap-8 lg:grid-cols-12 lg:gap-12 items-start">
-          <div class="lg:col-span-4">
-            <p class="eyebrow mb-3">Como trabalho</p>
-          </div>
-          <div class="lg:col-span-8">
-            <h2 class="font-display font-semibold text-3xl md:text-4xl text-grafite mb-6">Minha forma de trabalhar</h2>
-            <p class="text-xl text-grafite/80 leading-relaxed">
-              O atendimento Ã© individualizado: primeiro procuro compreender a histÃ³ria, as necessidades e os objetivos do paciente e da famÃ­lia â€” antes de qualquer diagnÃ³stico existe uma pessoa, uma famÃ­lia, uma histÃ³ria. A partir disso, construo estratÃ©gias de acompanhamento que possam ser aplicadas de maneira prÃ¡tica no cotidiano. Como um profissional acolhedor, comprometido, humano, experiente, que realmente procura compreender cada paciente antes de propor qualquer intervenÃ§Ã£o.
-            </p>
+    <!-- GALERIA -->
+    <section data-od-id="sobre-galeria" class="px-6 py-24 md:px-10">
+      <div class="mx-auto  overflow-hidden">
+        <h2 class="font-display text-3xl text-tinta">Conheça o espaço</h2>
+        <p class="mt-2 text-tinta/70">Em movimento · segure uma foto para pausar.</p>
+        <div class="reveal mt-8">
+          <div id="gallery">
+            <div class="flex h-72 w-80 shrink-0 mr-5 items-end rounded-2xl border border-areia/50 bg-areia/40 p-4"><span class="text-sm text-tinta/40">Foto do consultório</span></div>
+            <div class="flex h-72 w-80 shrink-0 mr-5 items-end rounded-2xl border border-areia/50 bg-areia/40 p-4"><span class="text-sm text-tinta/40">Sala de atendimento</span></div>
+            <div class="flex h-72 w-80 shrink-0 mr-5 items-end rounded-2xl border border-areia/50 bg-areia/40 p-4"><span class="text-sm text-tinta/40">Espaço de espera</span></div>
+            <div class="flex h-72 w-80 shrink-0 mr-5 items-end rounded-2xl border border-areia/50 bg-areia/40 p-4"><span class="text-sm text-tinta/40">Detalhe do ambiente</span></div>
+            <div class="flex h-72 w-80 shrink-0 mr-5 items-end rounded-2xl border border-areia/50 bg-areia/40 p-4"><span class="text-sm text-tinta/40">Área de leitura</span></div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- VALORES -->
-    <section data-od-id="valores" class="py-16 md:py-20">
-      <div class="px-6">
-        <h2 class="font-display font-semibold text-3xl md:text-4xl text-terracota mb-8">Valores</h2>
-        <ul class="flex flex-wrap gap-x-3 gap-y-2 text-grafite/80">
-          <li class="rounded-full border border-areia/60 px-4 py-2 text-sm">Acolhimento</li>
-          <li class="rounded-full border border-areia/60 px-4 py-2 text-sm">Respeito</li>
-          <li class="rounded-full border border-areia/60 px-4 py-2 text-sm">Ã‰tica</li>
-          <li class="rounded-full border border-areia/60 px-4 py-2 text-sm">Empatia</li>
-          <li class="rounded-full border border-areia/60 px-4 py-2 text-sm">Escuta</li>
-          <li class="rounded-full border border-areia/60 px-4 py-2 text-sm">Individualidade</li>
-          <li class="rounded-full border border-areia/60 px-4 py-2 text-sm">Responsabilidade profissional</li>
-          <li class="rounded-full border border-areia/60 px-4 py-2 text-sm">HumanizaÃ§Ã£o</li>
-          <li class="rounded-full border border-areia/60 px-4 py-2 text-sm">Compromisso com o desenvolvimento e autonomia</li>
-        </ul>
-      </div>
-    </section>
-
-    <!-- CITAÃ‡ÃƒO ISOLADA -->
-    <section data-od-id="citacao" class="py-24 md:py-32 text-center">
-      <div class="px-6">
-        <blockquote class="font-display italic text-3xl md:text-5xl leading-tight text-terracota">
-          â€œCada pessoa tem uma histÃ³ria. Meu trabalho comeÃ§a quando escolho compreender essa histÃ³ria.â€
-        </blockquote>
-        <p class="mt-8 text-sm uppercase tracking-[0.2em] text-terracota-2">Tadeu FranÃ§a</p>
-      </div>
-    </section>
-
-    <!-- FORMAÃ‡ÃƒO -->
-    <section data-od-id="formacao" class="bg-terracota text-offwhite py-20 md:py-28">
-      <div class="px-6">
-        <p class="eyebrow text-offwhite/70 mb-5">FormaÃ§Ã£o e especializaÃ§Ãµes</p>
-        <h2 class="font-display font-semibold text-3xl md:text-5xl mb-10 leading-tight">Uma base ampla da pessoa</h2>
-        <ul class="grid sm:grid-cols-2 gap-x-10 gap-y-4 text-xl text-offwhite/90">
-          <li>Terapeuta Comportamental ABA</li>
-          <li>Neuropsicopedagogia ClÃ­nica</li>
-          <li>PsicanÃ¡lise ClÃ­nica</li>
-          <li>Pedagogia</li>
-          <li>MagistÃ©rio</li>
-          <li>PÃ³s-graduaÃ§Ã£o/formaÃ§Ã£o em ABA</li>
-          <li>Ludopedagogia</li>
-          <li>Neuroanatomia aplicada Ã s dificuldades de aprendizagem</li>
-          <li>PrÃ¡ticas PedagÃ³gicas Inclusivas</li>
-        </ul>
-        <div class="mt-12 border-t border-offwhite/30 pt-8">
-          <p class="eyebrow text-offwhite/70 mb-4">Posicionamento central</p>
-          <p class="font-display text-2xl md:text-3xl leading-snug">
-            <strong class="font-semibold">ABA + Neuropsicopedagogia ClÃ­nica + mais de trÃªs dÃ©cadas na Ã¡rea pedagÃ³gica</strong> â€” esse conjunto Ã© o posicionamento profissional central.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <!-- CERTIFICADOS -->
-    <section data-od-id="certificados" class="px-6 py-20 md:py-24">
-      <h2 class="font-display font-semibold text-3xl md:text-4xl text-grafite mb-4">Certificados</h2>
-      <p class="text-xl text-grafite/80 leading-relaxed">
-        Os certificados das formaÃ§Ãµes estÃ£o disponÃ­veis e podem ser apresentados quando solicitado.
-      </p>
-    </section>
-
-    <!-- CTA -->
-    <section data-od-id="cta" class="px-6 py-16 text-center">
-      <a href="https://wa.me/5511932201048?text=Ol%C3%A1%2C%20Tadeu!%20Conheci%20seu%20trabalho%20pelo%20site%20e%20gostaria%20de%20obter%20mais%20informa%C3%A7%C3%B5es%20sobre%20o%20atendimento." class="cta-whatsapp inline-block font-semibold px-8 py-4 rounded-full text-lg">Falar com Tadeu</a>
-    </section>
   </main>
 
-  <footer class="border-t border-areia/60 bg-offwhite">
-    <div class="px-6 py-14 grid gap-10 md:grid-cols-3">
+  <footer class="bg-tinta px-6 py-16 text-off/90 md:px-10">
+    <div class="mx-auto grid  gap-10 md:grid-cols-2">
       <div>
-        <p class="font-display text-2xl text-grafite mb-3">Tadeu FranÃ§a</p>
-        <p class="text-sm text-grafite/70 leading-relaxed">Terapeuta Comportamental ABA, Neuropsicopedagogo e Psicanalista ClÃ­nico. Atendimento presencial em Itaquera e regiÃ£o da Zona Leste de SÃ£o Paulo, alÃ©m de atendimento online.</p>
+        <p class="font-display text-3xl text-off">Tadeu França</p>
+        <p class="mt-4 max-w-sm text-sm leading-relaxed text-off/70">Acompanhamento individualizado para crianças, adolescentes e adultos.</p>
       </div>
-      <div>
-        <p class="eyebrow mb-4">Contato</p>
-        <ul class="space-y-2 text-sm text-grafite/80">
-          <li><a href="https://wa.me/5511932201048?text=Ol%C3%A1%2C%20Tadeu!%20Conheci%20seu%20trabalho%20pelo%20site%20e%20gostaria%20de%20obter%20mais%20informa%C3%A7%C3%B5es%20sobre%20o%20atendimento." class="hover:text-terracota">WhatsApp: (11) 93220-1048</a></li>
-          <li><a href="mailto:terapeutatadeufranca@gmail.com" class="hover:text-terracota">terapeutatadeufranca@gmail.com</a></li>
-          <li><a href="https://instagram.com/tadeufranca_terapeuta" class="hover:text-terracota">Instagram: @tadeufranca_terapeuta</a></li>
-        </ul>
-      </div>
-      <div>
-        <p class="eyebrow mb-4">NavegaÃ§Ã£o</p>
-        <ul class="space-y-2 text-sm text-grafite/80">
-          <li><a href="index.html" class="hover:text-terracota">InÃ­cio</a></li>
-          <li><a href="sobre.html" class="hover:text-terracota">Sobre &amp; FormaÃ§Ã£o</a></li>
-          <li><a href="atendimentos.html" class="hover:text-terracota">Atendimentos</a></li>
-          <li><a href="como-funciona.html" class="hover:text-terracota">Como Funciona</a></li>
-          <li><a href="contato.html" class="hover:text-terracota">Contato</a></li>
-        </ul>
+      <div class="space-y-2 text-sm">
+        <p><a class="underline-hover" href="https://wa.me/5511932201048?text=Ol%C3%A1%2C%20gostaria%20de%20conversar%20sobre%20meu%20caso.">WhatsApp: (11) 93220-1048</a></p>
+        <p><a class="underline-hover" href="https://instagram.com/tadeufranca_terapeuta" target="_blank" rel="noopener">Instagram: @tadeufranca_terapeuta</a></p>
+        <p><a class="underline-hover" href="tel:+5511932201048">Telefone: (11) 93220-1048</a></p>
+        <p><a class="underline-hover" href="mailto:terapeutatadeufranca@gmail.com">terapeutatadeufranca@gmail.com</a></p>
+        <p class="text-off/70">Av. Maria Luiza Americano, 103 Parque do Carmo, São Paulo CEP 08275-001</p>
+        <p class="text-off/70">Atendimento presencial e online</p>
       </div>
     </div>
-    <div class="border-t border-areia/60 py-5 text-center text-xs text-grafite/50">Â© <span id="ano"></span> Tadeu FranÃ§a. Todos os direitos reservados.</div>
+    <p class="mx-auto mt-12  text-xs text-off/40">© Tadeu França Acompanhamento individualizado.</p>
   </footer>
 
-  <script src="assets/main.js" defer></script>
+  <script>
+    const mb = document.getElementById('menu-btn');
+    const mm = document.getElementById('mobile-menu');
+    if (mb) mb.addEventListener('click', () => mm.classList.toggle('hidden'));
+    document.querySelectorAll('#mobile-menu a').forEach(a => a.addEventListener('click', () => mm.classList.add('hidden')));
+
+    const revs = document.querySelectorAll('.reveal');
+    const ro = new IntersectionObserver((es) => {
+      es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); ro.unobserve(e.target); } });
+    }, { threshold: 0.12 });
+    revs.forEach(r => ro.observe(r));
+
+    const g = document.getElementById('gallery');
+    Array.from(g.children).forEach(f => g.appendChild(f.cloneNode(true)));
+    const period = () => g.children[5].offsetLeft;
+    let pos = 0, dragging = false, startX = 0, startPos = 0;
+    const speed = 1.3;
+
+    const wrap = (v) => { const w = period(); return ((v % w) + w) % w; };
+    const apply = () => { g.style.transform = `translateX(${-wrap(pos)}px)`; };
+
+    g.addEventListener('pointerdown', (e) => {
+      dragging = true; startX = e.clientX; startPos = pos;
+      g.classList.add('dragging'); g.setPointerCapture(e.pointerId);
+    });
+    window.addEventListener('pointermove', (e) => {
+      if (!dragging) return;
+      pos = startPos - (e.clientX - startX);
+    });
+    const endDrag = () => { if (dragging) { dragging = false; pos = wrap(pos); g.classList.remove('dragging'); } };
+    window.addEventListener('pointerup', endDrag);
+    window.addEventListener('pointercancel', endDrag);
+
+    function loop() {
+      if (!dragging) pos += speed;
+      apply();
+      requestAnimationFrame(loop);
+    }
+    loop();
+  </script>
 </body>
 </html>
