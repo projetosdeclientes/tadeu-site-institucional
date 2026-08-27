@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Contato fale sobre o seu caso com Tadeu França</title>
-  <meta name="description" content="Fale com Tadeu França pelo WhatsApp, Instagram, telefone ou formulário. Atendimento presencial em Parque do Carmo e online para todo o Brasil." />
+  <meta name="description" content="Fale com Tadeu França pelo WhatsApp, Instagram ou telefone. Atendimento presencial em Parque do Carmo e online para todo o Brasil." />
   <meta name="robots" content="index, follow" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -32,23 +32,6 @@
     .underline-hover { position:relative; }
     .underline-hover::after { content:''; position:absolute; left:0; bottom:-2px; height:1px; width:0; background:currentColor; transition:width .3s; }
     .underline-hover:hover::after { width:100%; }
-
-    .float-field { position:relative; }
-    .float-field input, .float-field textarea {
-      width:100%; border:0; border-bottom:1px solid #D9B9A1; background:transparent;
-      padding:1.4rem 0 .5rem; font-size:1rem; color:#3F3935; outline:none; transition:border-color .25s;
-    }
-    .float-field input:focus, .float-field textarea:focus { border-color:#A9604D; }
-    .float-field label {
-      position:absolute; left:0; top:1.4rem; font-size:1rem; color:rgba(63,57,53,.6);
-      transition:.2s ease; pointer-events:none;
-    }
-    .float-field input:focus + label,
-    .float-field input:not(:placeholder-shown) + label,
-    .float-field textarea:focus + label,
-    .float-field textarea:not(:placeholder-shown) + label {
-      top:0; font-size:.75rem; color:#A9604D;
-    }
 
     @media (prefers-reduced-motion: reduce) { html { scroll-behavior:auto; } }
     @keyframes ruleDraw { from { transform:scaleX(0); } to { transform:scaleX(1); } }
@@ -111,69 +94,72 @@
 
   <main class="pt-16">
     <section data-od-id="contato" class="px-6 py-24 md:px-10">
-      <div class="mx-auto ">
-        <h1 class="font-display text-[clamp(2.25rem,5.5vw,4rem)] leading-tight text-tinta">Vamos conversar sobre o seu caso?</h1>
-        <p class="mt-4 text-lg text-tinta/70">Você não precisa ter todas as respostas para dar o primeiro passo.</p>
-
-        <!-- LINKS DE CONTATO -->
-        <div class="mt-12 space-y-4">
-          <p class="flex items-center gap-3 text-lg">
-            <span class="text-[#25D366]" aria-hidden="true">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163a11.867 11.867 0 0 1-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.82 11.82 0 0 1 8.413 3.488 11.82 11.82 0 0 1 3.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 0 1-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 0 0 1.518 5.256l-.999 3.648 3.97-1.039zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.52.151-.174.2-.298.3-.497.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.095 3.2 5.076 4.487.709.306 1.262.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
-            </span>
-            <a class="underline-hover font-semibold text-[#25D366]" href="https://wa.me/5511932201048?text=Ol%C3%A1%2C%20gostaria%20de%20conversar%20sobre%20meu%20caso.">WhatsApp: (11) 93220-1048</a>
-          </p>
-          <p class="flex items-center gap-3 text-tinta/70">
-            <span class="text-tinta/50" aria-hidden="true">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>
-            </span>
-            <a class="underline-hover" href="https://instagram.com/tadeufranca_terapeuta" target="_blank" rel="noopener">Instagram: @tadeufranca_terapeuta</a>
-          </p>
-          <p class="flex items-center gap-3 text-tinta/70">
-            <span class="text-tinta/50" aria-hidden="true">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 5h16v14H4z"/><path d="M4 6l8 6 8-6"/></svg>
-            </span>
-            <a class="underline-hover" href="tel:+5511932201048">Telefone: (11) 93220-1048</a>
-          </p>
+      <div class="mx-auto max-w-5xl">
+        <div class="mx-auto max-w-2xl text-center">
+          <h1 class="font-display text-[clamp(2.5rem,6vw,4.5rem)] leading-tight text-tinta">Vamos conversar sobre o seu caso?</h1>
+          <p class="mx-auto mt-5 max-w-xl text-lg text-tinta/70">Você não precisa ter todas as respostas para dar o primeiro passo. Estou aqui para ouvir com cuidado e sem julgamentos.</p>
         </div>
 
-        <!-- FORMULÁRIO -->
-        <form id="contato-form" name="contato" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="mt-14 max-w-xl">
-          <input type="hidden" name="form-name" value="contato" />
-          <p class="hidden"><label>Não preencha <input name="bot-field" /></label></p>
+        <!-- CTA WHATSAPP PRINCIPAL -->
+        <a href="https://wa.me/5511932201048?text=Ol%C3%A1%2C%20gostaria%20de%20conversar%20sobre%20meu%20caso." target="_blank" rel="noopener" class="group mx-auto mt-12 flex max-w-3xl items-center justify-center gap-4 rounded-3xl bg-[#25D366] px-8 py-7 text-white shadow-lg shadow-[#25D366]/20 transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#1ebe5a] hover:shadow-xl hover:shadow-[#25D366]/30">
+          <span class="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-white/15" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="currentColor" class="h-7 w-7"><path d="M.057 24l1.687-6.163a11.867 11.867 0 0 1-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.82 11.82 0 0 1 8.413 3.488 11.82 11.82 0 0 1 3.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 0 1-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 0 0 1.518 5.256l-.999 3.648 3.97-1.039zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.52.151-.174.2-.298.3-.497.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.095 3.2 5.076 4.487.709.306 1.262.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+          </span>
+          <span class="text-left min-w-0">
+            <span class="block font-display text-2xl leading-tight">Converse comigo no WhatsApp</span>
+            <span class="block text-sm text-white/85">(11) 93220-1048 · respondo em até 1 dia útil</span>
+          </span>
+        </a>
 
-          <div class="float-field mb-8">
-            <input id="nome" name="nome" type="text" placeholder=" " required />
-            <label for="nome">Nome</label>
-          </div>
-          <div class="float-field mb-8">
-            <input id="contato-meio" name="contato-meio" type="text" placeholder=" " required />
-            <label for="contato-meio">Telefone ou E-mail</label>
-          </div>
-          <div class="float-field mb-8">
-            <textarea id="mensagem" name="mensagem" rows="4" placeholder=" " required></textarea>
-            <label for="mensagem">Conte um pouco sobre o que você está buscando</label>
-          </div>
-
-          <button type="submit" class="inline-flex items-center justify-center rounded-full bg-terra px-8 py-4 text-base font-semibold text-off transition-colors hover:bg-terra2 cta-pulse">Enviar mensagem</button>
-
-          <p id="form-error" class="mt-4 hidden text-sm text-terra">Por favor, preencha todos os campos obrigatórios.</p>
-        </form>
-
-        <div id="form-success" class="mt-14 hidden rounded-2xl border border-areia/60 bg-creme/40 p-8">
-          <p class="font-display text-2xl text-tinta">Mensagem enviada obrigado.</p>
-          <p class="mt-2 text-tinta/75">Retornarei o contato em breve. Se preferir, fale comigo agora mesmo pelo WhatsApp.</p>
+        <!-- OUTROS CANAIS -->
+        <div class="mx-auto mt-5 grid max-w-3xl gap-4 sm:grid-cols-3">
+          <a href="tel:+5511932201048" class="group flex items-center gap-4 rounded-2xl border border-areia/50 bg-off p-5 transition-all hover:-translate-y-0.5 hover:border-terra/40 hover:shadow-md">
+            <span class="flex h-11 w-11 items-center justify-center rounded-full bg-terra/10 text-terra" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="h-5 w-5"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.6a2 2 0 0 1-.5 2.1L8.1 9.6a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.5c.8.3 1.7.5 2.6.6a2 2 0 0 1 1.7 2z"/></svg>
+            </span>
+            <span class="min-w-0">
+              <span class="block text-xs uppercase tracking-wide text-tinta/50">Telefone</span>
+              <span class="block break-words font-medium text-tinta">(11) 93220-1048</span>
+            </span>
+          </a>
+          <a href="https://instagram.com/tadeufranca_terapeuta" target="_blank" rel="noopener" class="group flex items-center gap-4 rounded-2xl border border-areia/50 bg-off p-5 transition-all hover:-translate-y-0.5 hover:border-terra/40 hover:shadow-md">
+            <span class="flex h-11 w-11 items-center justify-center rounded-full bg-terra/10 text-terra" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="h-5 w-5"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>
+            </span>
+            <span class="min-w-0">
+              <span class="block text-xs uppercase tracking-wide text-tinta/50">Instagram</span>
+              <span class="block break-words font-medium text-tinta">@tadeufranca_terapeuta</span>
+            </span>
+          </a>
+          <a href="mailto:terapeutatadeufranca@gmail.com" class="group flex items-center gap-4 rounded-2xl border border-areia/50 bg-off p-5 transition-all hover:-translate-y-0.5 hover:border-terra/40 hover:shadow-md">
+            <span class="flex h-11 w-11 items-center justify-center rounded-full bg-terra/10 text-terra" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="h-5 w-5"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+            </span>
+            <span class="min-w-0">
+              <span class="block text-xs uppercase tracking-wide text-tinta/50">E-mail</span>
+              <span class="block break-words font-medium text-tinta">terapeutatadeufranca@gmail.com</span>
+            </span>
+          </a>
         </div>
 
-        <!-- HORÁRIOS -->
-        <p class="mt-16 text-tinta/70">Consulte a disponibilidade diretamente pelo WhatsApp. <span class="text-tinta/40">[horários reais a confirmar com o cliente]</span></p>
-
-        <!-- ENDEREÇO + MAPA -->
-        <div class="mt-10">
-          <h2 class="font-display text-2xl text-tinta">Onde atendo</h2>
-          <p class="mt-2 text-tinta/80">Av. Maria Luiza Americano, 103 Parque do Carmo, São Paulo CEP 08275-001</p>
-          <div class="mt-5 overflow-hidden rounded-2xl border border-areia/50">
-            <iframe title="Localização do consultório de Tadeu França no Parque do Carmo, São Paulo" src="https://maps.google.com/maps?q=Av.+Maria+Luiza+Americano,+103,+Parque+do+Carmo,+S%C3%A3o+Paulo&output=embed" width="100%" height="320" style="border:0" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <!-- HORÁRIOS + ONDE ATENDO -->
+        <div class="mt-16 grid gap-8 md:grid-cols-2">
+          <div class="rounded-3xl border border-areia/50 bg-creme/40 p-8">
+            <h2 class="font-display text-2xl text-tinta">Horários de atendimento</h2>
+            <ul class="mt-5 space-y-3 text-tinta/80">
+              <li class="flex flex-wrap items-center justify-between gap-x-4 gap-y-1 border-b border-areia/40 pb-3"><span>Segunda-feira</span><span class="font-medium text-tinta">18h às 20h</span></li>
+              <li class="flex flex-wrap items-center justify-between gap-x-4 gap-y-1 border-b border-areia/40 pb-3"><span>Terça-feira</span><span class="font-medium text-tinta">16h30 às 19h30</span></li>
+              <li class="flex flex-wrap items-center justify-between gap-x-4 gap-y-1 border-b border-areia/40 pb-3"><span>Quinta-feira</span><span class="font-medium text-tinta">16h30 às 19h30</span></li>
+              <li class="flex flex-wrap items-center justify-between gap-x-4 gap-y-1"><span>Sábado</span><span class="font-medium text-tinta">09h às 13h</span></li>
+            </ul>
+            <p class="mt-5 text-tinta/70">Modalidades: <span class="font-medium text-tinta">presencial e online</span>. Consulte a disponibilidade diretamente pelo WhatsApp.</p>
+          </div>
+          <div class="rounded-3xl border border-areia/50 bg-creme/40 p-8">
+            <h2 class="font-display text-2xl text-tinta">Onde atendo</h2>
+            <p class="mt-3 text-tinta/80">Av. Maria Luiza Americano, 103<br>Parque do Carmo, São Paulo — CEP 08275-001</p>
+            <div class="mt-5 overflow-hidden rounded-2xl border border-areia/50">
+              <iframe title="Localização do consultório de Tadeu França no Parque do Carmo, São Paulo" src="https://maps.google.com/maps?q=Av.+Maria+Luiza+Americano,+103,+Parque+do+Carmo,+S%C3%A3o+Paulo&output=embed" width="100%" height="240" style="border:0" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
           </div>
         </div>
       </div>
@@ -248,24 +234,7 @@
     });
     document.querySelectorAll('#mobile-menu a').forEach(a => a.addEventListener('click', () => mm.classList.add('hidden')));
 
-    const form = document.getElementById('contato-form');
-    const success = document.getElementById('form-success');
-    const error = document.getElementById('form-error');
-    form.addEventListener('submit', async (e) => {
-      e.preventDefault();
-      if (!form.checkValidity()) { error.classList.remove('hidden'); form.reportValidity(); return; }
-      error.classList.add('hidden');
-      const data = new FormData(form);
-      try {
-        await fetch('/', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-          body: new URLSearchParams(data).toString()
-        });
-      } catch (err) { /* fallback: envio nativo */ }
-      form.classList.add('hidden');
-      success.classList.remove('hidden');
-    });
+
   </script>
   <script>
     (function(){
