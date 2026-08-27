@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Sobre Tadeu França trajetória em educação, ABA e psicanálise</title>
-  <meta name="description" content="Conheça a trajetória de Tadeu: mais de trinta anos em educação, ABA, neuropsicopedagogia clínica e psicanálise. Consultório particular em Parque do Carmo, São Paulo." />
+  <title>Atendimento TEA, TDAH e desenvolvimento humano em São Paulo</title>
+  <meta name="description" content="Atendimento individualizado para TEA, TDAH, dificuldades de aprendizagem e regulação emocional. Para pais e famílias, adolescentes e adultos. Parque do Carmo, São Paulo." />
   <meta name="robots" content="index, follow" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -33,21 +33,32 @@
     .underline-hover::after { content:''; position:absolute; left:0; bottom:-2px; height:1px; width:0; background:currentColor; transition:width .3s; }
     .underline-hover:hover::after { width:100%; }
 
-    .drop-cap::first-letter { font-family:'Cormorant Garamond', serif; float:left; font-size:3.6rem; line-height:.78; padding:0.08em 0.14em 0 0; color:#A9604D; font-weight:600; }
+    .tab { transition:color .25s, border-color .25s; }
+    .tab.active { color:#A9604D; border-color:#A9604D; }
 
-    .marquee { display:flex; width:max-content; animation: marquee 30s linear infinite; }
-    .marquee:hover { animation-play-state: paused; }
-    @keyframes marquee { from { transform:translateX(0); } to { transform:translateX(-50%); } }
+    .float-pill { animation: floaty 5s ease-in-out infinite; }
+    @keyframes floaty { 0%,100% { transform: translateY(0) scale(1); } 50% { transform: translateY(-14px) scale(1.05); } }
 
     .reveal { opacity:0; transform:translateY(22px); transition:opacity .7s ease, transform .7s ease; }
     .reveal.in { opacity:1; transform:none; }
 
-    #gallery { display:flex; width:max-content; will-change:transform; }
-    #gallery.dragging { cursor:grabbing; }
+    .timeline-line { transform:scaleY(0); transform-origin:top; transition:transform 1.3s ease; }
+    .timeline-line.drawn { transform:scaleY(1); }
+
+    .timeline-step { opacity:0; transform:translateY(16px); }
+    .timeline-step.show { animation: stepCount .6s cubic-bezier(.22,1,.36,1) forwards; }
+    @keyframes stepCount { from { opacity:0; transform:translateY(16px); } to { opacity:1; transform:translateY(0); } }
+    .timeline-step.show .step-num { animation: numPop .5s cubic-bezier(.22,1,.36,1) both; animation-delay:inherit; }
+    @keyframes numPop { 0% { transform:scale(.4); } 60% { transform:scale(1.2); } 100% { transform:scale(1); } }
+
+    @keyframes modeOut { from { opacity:1; transform:translateY(0); } to { opacity:0; transform:translateY(-8px); } }
+    @keyframes modeIn { from { opacity:0; transform:translateY(8px); } to { opacity:1; transform:translateY(0); } }
 
     @media (prefers-reduced-motion: reduce) {
-      .marquee { animation:none; }
+      .float-pill { animation:none; }
       .reveal { opacity:1 !important; transform:none !important; transition:none !important; }
+      .timeline-line { transform:none !important; }
+      .timeline-step { opacity:1 !important; transform:none !important; animation:none !important; }
       html { scroll-behavior:auto; }
     }
     @keyframes ruleDraw { from { transform:scaleX(0); } to { transform:scaleX(1); } }
@@ -84,8 +95,8 @@
       <div class="flex items-center gap-6 md:gap-8">
         <nav class="hidden items-center gap-8 text-sm md:flex">
           <a href="index.html" class="nav-link">Início</a>
-          <a href="sobre.html" class="nav-link active" aria-current="page">Sobre &amp; Formação</a>
-          <a href="atendimento.html" class="nav-link">Atendimentos</a>
+          <a href="sobre.html" class="nav-link">Sobre &amp; Formação</a>
+          <a href="atendimento.html" class="nav-link active" aria-current="page">Atendimentos</a>
           <a href="perguntas-frequentes.html" class="nav-link">Como Funciona</a>
           <a href="contato.html" class="nav-link">Contato</a>
         </nav>
@@ -98,8 +109,8 @@
     <div id="mobile-menu" class="hidden border-t border-areia/40 bg-off md:hidden">
       <nav class="flex flex-col px-6 py-3 text-sm">
         <a href="index.html" class="nav-link border-b border-areia/30 py-3">Início</a>
-        <a href="sobre.html" class="nav-link active border-b border-areia/30 py-3" aria-current="page">Sobre &amp; Formação</a>
-        <a href="atendimento.html" class="nav-link border-b border-areia/30 py-3">Atendimentos</a>
+        <a href="sobre.html" class="nav-link border-b border-areia/30 py-3">Sobre &amp; Formação</a>
+        <a href="atendimento.html" class="nav-link active border-b border-areia/30 py-3" aria-current="page">Atendimentos</a>
         <a href="perguntas-frequentes.html" class="nav-link border-b border-areia/30 py-3">Como Funciona</a>
         <a href="contato.html" class="nav-link py-3">Contato</a>
       </nav>
@@ -110,61 +121,97 @@
 
   <main class="pt-16">
 
-    <!-- NARRATIVA -->
-    <section data-od-id="sobre-narrativa" class="px-6 py-24 md:px-10">
+    <!-- INTRO -->
+    <section data-od-id="atendimento-intro" class="px-6 py-24 md:px-10">
       <div class="mx-auto ">
-        <h1 class="font-display text-[clamp(2.5rem,6vw,4.5rem)] text-tinta">Sobre</h1>
-        <p class="drop-cap mt-8 text-lg leading-relaxed text-tinta/85">Tadeu construiu sua trajetória ao longo de mais de trinta anos, começando na educação como pedagogo e professor e se aprofundando em ABA, neuropsicopedagogia clínica e psicanálise.</p>
+        <h1 class="font-display text-[clamp(2.5rem,6vw,4.5rem)] leading-tight text-tinta">Atendimento</h1>
+        <p class="mt-6 font-display text-[clamp(1.75rem,4.5vw,3rem)] leading-snug text-terra">Um olhar para a pessoa, não apenas para o diagnóstico.</p>
+        <p class="mt-4 text-lg text-tinta/75">Um diagnóstico é só o início da conversa não o resumo de quem você é.</p>
       </div>
     </section>
 
-    <!-- FORMAÇÃO MARQUEE -->
-    <section data-od-id="sobre-formacao" class="overflow-hidden border-y border-areia/40 py-16" aria-label="Formação">
-      <div class="marquee">
-        <div class="flex items-center gap-10 whitespace-nowrap px-5 text-lg text-tinta/70">
-          <span>ABA</span><span class="text-areia">·</span>
-          <span>Neuropsicopedagogia Clínica</span><span class="text-areia">·</span>
-          <span>Psicanálise Clínica</span><span class="text-areia">·</span>
-          <span>Pedagogia</span><span class="text-areia">·</span>
-          <span>Magistério</span><span class="text-areia">·</span>
-          <span>Ludopedagogia</span><span class="text-areia">·</span>
-          <span>Neuroanatomia Aplicada</span><span class="text-areia">·</span>
-          <span>Práticas Pedagógicas Inclusivas</span>
+    <!-- PARA QUEM É TABS -->
+    <section data-od-id="para-quem" class="bg-creme/40 px-6 py-24 md:px-10">
+      <div class="mx-auto ">
+        <h2 class="font-display text-3xl text-tinta">Para quem é</h2>
+        <div class="mt-6 flex gap-2 border-b border-areia/60">
+          <button data-tab="0" class="tab active border-b-2 border-terra px-1 pb-3 pr-6 text-base font-semibold">Pais e famílias</button>
+          <button data-tab="1" class="tab border-b-2 border-transparent px-1 pb-3 text-base font-semibold text-tinta/60">Adolescentes e adultos</button>
         </div>
-        <div class="flex items-center gap-10 whitespace-nowrap px-5 text-lg text-tinta/70" aria-hidden="true">
-          <span>ABA</span><span class="text-areia">·</span>
-          <span>Neuropsicopedagogia Clínica</span><span class="text-areia">·</span>
-          <span>Psicanálise Clínica</span><span class="text-areia">·</span>
-          <span>Pedagogia</span><span class="text-areia">·</span>
-          <span>Magistério</span><span class="text-areia">·</span>
-          <span>Ludopedagogia</span><span class="text-areia">·</span>
-          <span>Neuroanatomia Aplicada</span><span class="text-areia">·</span>
-          <span>Práticas Pedagógicas Inclusivas</span>
+        <div class="mt-8 min-h-[5rem]">
+          <p data-panel="0" class="text-lg leading-relaxed text-tinta/85">Você percebe uma dificuldade persistente no seu filho e quer entender como acolher e ajudar no dia a dia.</p>
+          <p data-panel="1" class="hidden text-lg leading-relaxed text-tinta/85">Você sente que pensa e sente de um jeito diferente, e busca se entender melhor com ou sem um diagnóstico.</p>
         </div>
       </div>
     </section>
 
-    <!-- MODELO -->
-    <section data-od-id="sobre-modelo" class="px-6 py-24 md:px-10">
-      <p class="reveal mx-auto  font-display text-[clamp(1.5rem,4vw,2.5rem)] leading-snug text-tinta">
-        Um consultório particular significa continuidade: o mesmo profissional do início ao fim, com proximidade real com você e sua família.
-      </p>
+    <!-- ÁREAS NUVEM DE PILLS -->
+    <section data-od-id="areas" class="px-6 py-24 md:px-10">
+      <div class="mx-auto  text-center">
+        <h2 class="font-display text-3xl text-tinta">Áreas de atuação</h2>
+        <div class="mt-10 flex flex-wrap items-center justify-center gap-3">
+          <span class="float-pill rounded-full border border-terra/40 px-6 py-3 text-base font-medium text-terra" style="animation-delay:0s">TEA</span>
+          <span class="float-pill rounded-full border border-terra/40 px-5 py-2 text-sm font-medium text-terra" style="animation-delay:.4s">TDAH</span>
+          <span class="float-pill rounded-full border border-terra/40 px-7 py-3 text-lg font-medium text-terra" style="animation-delay:.8s">Dificuldades de aprendizagem</span>
+          <span class="float-pill rounded-full border border-terra/40 px-6 py-3 text-lg font-medium text-terra" style="animation-delay:1.2s">Comportamento</span>
+          <span class="float-pill rounded-full border border-terra/40 px-6 py-3 text-base font-medium text-terra" style="animation-delay:1.6s">Regulação emocional</span>
+          <span class="float-pill rounded-full border border-terra/40 px-6 py-3 text-lg font-medium text-terra" style="animation-delay:2s">Diagnóstico tardio</span>
+          <span class="float-pill rounded-full border border-terra/40 px-7 py-3 text-base font-medium text-terra" style="animation-delay:2.4s">Orientação parental e escolar</span>
+        </div>
+      </div>
     </section>
 
-    <!-- GALERIA -->
-    <section data-od-id="sobre-galeria" class="px-6 py-24 md:px-10">
-      <div class="mx-auto  overflow-hidden">
-        <h2 class="font-display text-3xl text-tinta">Conheça o espaço</h2>
-        <div class="reveal mt-8">
-          <div id="gallery">
-            <div class="shrink-0 mr-5 h-72 w-80 overflow-hidden rounded-2xl border border-areia/50"><img src="assets/foto-sobre-1.png" alt="Consultório Tadeu França" class="h-full w-full object-cover" draggable="false" /></div>
-            <div class="shrink-0 mr-5 h-72 w-80 overflow-hidden rounded-2xl border border-areia/50"><img src="assets/foto-sobre-2.png" alt="Espaço de atendimento" class="h-full w-full object-cover" draggable="false" /></div>
-            <div class="shrink-0 mr-5 h-72 w-80 overflow-hidden rounded-2xl border border-areia/50"><img src="assets/foto-sobre-3.png" alt="Ambiente do consultório" class="h-full w-full object-cover" draggable="false" /></div>
-            <div class="shrink-0 mr-5 h-72 w-80 overflow-hidden rounded-2xl border border-areia/50"><img src="assets/foto-sobre-4.png" alt="Sala de atendimento" class="h-full w-full object-cover" draggable="false" /></div>
-            <div class="shrink-0 mr-5 h-72 w-80 overflow-hidden rounded-2xl border border-areia/50"><img src="assets/foto-sobre-5.png" alt="Detalhe do espaço" class="h-full w-full object-cover" draggable="false" /></div>
-            <div class="shrink-0 mr-5 h-72 w-80 overflow-hidden rounded-2xl border border-areia/50"><img src="assets/foto-sobre-6.png" alt="Área de convivência" class="h-full w-full object-cover" draggable="false" /></div>
+    <!-- DIFERENCIAIS ALTERNAÇA TEXTO/IMAGEM -->
+    <section data-od-id="diferenciais" class="px-6 py-24 md:px-10">
+      <div class="mx-auto grid  items-center gap-10 md:grid-cols-2">
+        <div class="reveal">
+          <h2 class="font-display text-3xl text-tinta">O que é diferente aqui</h2>
+          <p class="mt-6 text-lg leading-relaxed text-tinta/85">Mais de três décadas de experiência unidas em um método próprio: pedagogia, neuropsicopedagogia clínica e psicanálise a serviço de uma leitura completa da pessoa.</p>
+        </div>
+        <div class="reveal space-y-4 md:pl-6" style="transition-delay:.12s">
+          <div class="border-t border-terra/40 pt-3">
+            <p class="font-display text-2xl text-terra">Pedagogia</p>
+          </div>
+          <div class="border-t border-terra/40 pt-3">
+            <p class="font-display text-2xl text-terra">Neuropsicopedagogia Clínica</p>
+          </div>
+          <div class="border-t border-terra/40 pt-3">
+            <p class="font-display text-2xl text-terra">Psicanálise Clínica</p>
           </div>
         </div>
+      </div>
+    </section>
+
+    <!-- COMO FUNCIONA TIMELINE -->
+    <section data-od-id="como-funciona" class="bg-creme/40 px-6 py-24 md:px-10">
+      <div class="mx-auto ">
+        <h2 class="font-display text-3xl text-tinta">Como funciona</h2>
+        <div id="timeline" class="relative mt-12 pl-10">
+          <div class="timeline-line absolute left-[14px] top-2 h-[calc(100%-1rem)] w-px bg-terra/50"></div>
+          <div class="timeline-step relative mb-12">
+            <span class="step-num absolute -left-10 top-1 flex h-7 w-7 items-center justify-center rounded-full bg-terra text-sm font-semibold text-off">1</span>
+            <p class="font-display text-2xl text-tinta">Conversa inicial pelo WhatsApp</p>
+          </div>
+          <div class="timeline-step relative mb-12">
+            <span class="step-num absolute -left-10 top-1 flex h-7 w-7 items-center justify-center rounded-full bg-terra text-sm font-semibold text-off">2</span>
+            <p class="font-display text-2xl text-tinta">Escuta e construção conjunta do plano</p>
+          </div>
+          <div class="timeline-step relative">
+            <span class="step-num absolute -left-10 top-1 flex h-7 w-7 items-center justify-center rounded-full bg-terra text-sm font-semibold text-off">3</span>
+            <p class="font-display text-2xl text-tinta">Acompanhamento contínuo, sem fórmulas prontas</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRESENCIAL E ONLINE TOGGLE -->
+    <section data-od-id="presencial-online" class="px-6 py-24 md:px-10">
+      <div class="mx-auto flex  flex-col items-center gap-6 text-center">
+        <h2 class="font-display text-3xl text-tinta">Presencial e online</h2>
+        <button id="toggle-btn" role="switch" aria-checked="false" aria-label="Alternar presencial e online" class="relative h-8 w-14 rounded-full bg-terra2 transition-colors">
+          <span id="toggle-knob" class="absolute left-1 top-1 h-6 w-6 rounded-full bg-off transition-transform"></span>
+        </button>
+        <p id="toggle-text" class="font-display text-2xl text-tinta">Presencial consultório no Parque do Carmo, São Paulo.</p>
       </div>
     </section>
 
@@ -223,33 +270,48 @@
     }, { threshold: 0.12 });
     revs.forEach(r => ro.observe(r));
 
-    const g = document.getElementById('gallery');
-    Array.from(g.children).forEach(f => g.appendChild(f.cloneNode(true)));
-    const period = () => g.children[Math.round(g.children.length / 2)].offsetLeft;
-    let pos = 0, dragging = false, startX = 0, startPos = 0;
-    const speed = 1.3;
+    // Tabs
+    const tabs = document.querySelectorAll('.tab');
+    const panels = document.querySelectorAll('[data-panel]');
+    tabs.forEach(t => t.addEventListener('click', () => {
+      const i = t.dataset.tab;
+      tabs.forEach(x => { x.classList.remove('active'); x.classList.remove('border-terra'); x.classList.add('text-tinta/60','border-transparent'); });
+      t.classList.add('active','border-terra'); t.classList.remove('text-tinta/60','border-transparent');
+      panels.forEach(p => p.classList.toggle('hidden', p.dataset.panel !== i));
+    }));
 
-    const wrap = (v) => { const w = period(); return ((v % w) + w) % w; };
-    const apply = () => { g.style.transform = `translateX(${-wrap(pos)}px)`; };
+    // Timeline draw
+    const tl = document.getElementById('timeline');
+    const tlo = new IntersectionObserver((es) => {
+      es.forEach(e => { if (e.isIntersecting) {
+        e.target.querySelector('.timeline-line').classList.add('drawn');
+        e.target.querySelectorAll('.timeline-step').forEach((s, i) => { s.style.animationDelay = (i * 0.9) + 's'; s.classList.add('show'); });
+        tlo.unobserve(e.target);
+      } });
+    }, { threshold: 0.25 });
+    tlo.observe(tl);
 
-    g.addEventListener('pointerdown', (e) => {
-      dragging = true; startX = e.clientX; startPos = pos;
-      g.classList.add('dragging'); g.setPointerCapture(e.pointerId);
-    });
-    window.addEventListener('pointermove', (e) => {
-      if (!dragging) return;
-      pos = startPos - (e.clientX - startX);
-    });
-    const endDrag = () => { if (dragging) { dragging = false; pos = wrap(pos); g.classList.remove('dragging'); } };
-    window.addEventListener('pointerup', endDrag);
-    window.addEventListener('pointercancel', endDrag);
-
-    function loop() {
-      if (!dragging) pos += speed;
-      apply();
-      requestAnimationFrame(loop);
-    }
-    loop();
+    // Toggle presencial/online
+    const tbtn = document.getElementById('toggle-btn');
+    const tknob = document.getElementById('toggle-knob');
+    const ttext = document.getElementById('toggle-text');
+      let online = false, swapT;
+      tbtn.addEventListener('click', () => {
+        online = !online;
+        tbtn.setAttribute('aria-checked', online);
+        tknob.style.transform = online ? 'translateX(24px)' : 'translateX(0)';
+        tbtn.classList.toggle('bg-terra', !online);
+        tbtn.classList.toggle('bg-terra2', online);
+        const next = online
+          ? 'Online para quem está em outra cidade ou prefere a comodidade de casa.'
+          : 'Presencial consultório no Parque do Carmo, São Paulo.';
+        clearTimeout(swapT);
+        ttext.style.animation = 'modeOut .22s ease forwards';
+        swapT = setTimeout(() => {
+          ttext.textContent = next;
+          ttext.style.animation = 'modeIn .34s cubic-bezier(.22,1,.36,1) forwards';
+        }, 220);
+      });
   </script>
   <script>
     (function(){

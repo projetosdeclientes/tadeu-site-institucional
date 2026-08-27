@@ -40,13 +40,10 @@
     .font-display{ font-family:'Fraunces', Georgia, serif; }
 
     /* Navegação */
-    .nav-link{ position:relative; }
-    .nav-link::after{
-      content:""; position:absolute; left:0; right:0; bottom:-4px; height:1.5px;
-      background:var(--terracota); transform:scaleX(0); transform-origin:left;
-      transition:transform .35s cubic-bezier(.16,1,.3,1);
-    }
-    .nav-link:hover::after, .nav-link[aria-current="page"]::after{ transform:scaleX(1); }
+    .nav-link{ position:relative; transition:color .25s; }
+    .nav-link:hover, .nav-link.active{ color:#A9604D; }
+    .nav-link::after{ content:''; position:absolute; left:0; right:0; bottom:-6px; height:1.5px; background:#A9604D; transform:scaleX(0); transform-origin:left; transition:transform .3s ease; }
+    .nav-link:hover::after, .nav-link.active::after{ transform:scaleX(1); }
 
     .tadeu-nome{ -webkit-text-stroke:1.5px var(--grafite); }
 
@@ -66,6 +63,24 @@
     }
     @keyframes ctaPulse { 0%,100% { box-shadow:0 0 0 0 rgba(169,96,77,.45); } 50% { box-shadow:0 0 0 14px rgba(169,96,77,0); } }
     .cta-pulse { animation:ctaPulse 2.6s ease-in-out infinite; }
+
+    /* CTA do hero — laranja vibrante + entrada + glow varrendo */
+    .cta-glow{
+      position:relative; overflow:hidden;
+      border:2px solid #ff6a1a; color:#ff6a1a; background:transparent;
+      animation:ctaEntrance .7s ease both .35s, ctaGlow 2.8s ease-in-out infinite 1s;
+    }
+    .cta-glow::after{
+      content:""; position:absolute; top:0; left:-160%;
+      width:160%; height:100%;
+      background:linear-gradient(115deg, transparent 0%, rgba(255,255,255,.7) 50%, transparent 100%);
+      transform:skewX(-18deg);
+      animation:ctaShine 3.4s ease-in-out infinite 1.4s;
+      pointer-events:none;
+    }
+    @keyframes ctaEntrance{ from{opacity:0; transform:translateY(16px);} to{opacity:1; transform:translateY(0);} }
+    @keyframes ctaGlow{ 0%,100%{ box-shadow:0 0 0 0 rgba(255,106,26,0);} 50%{ box-shadow:0 0 20px 3px rgba(255,106,26,.6);} }
+    @keyframes ctaShine{ 0%{left:-160%;} 55%,100%{left:160%;} }
     .faq-item { transition:background-color .25s ease; }
     .faq-item:hover { background-color:rgba(217,185,161,.16); }
     .teaser-enter { opacity:0; transform:translateY(26px); transition:opacity .7s ease, transform .7s ease; }
@@ -79,8 +94,8 @@
     }
     .hero-circle{
       position:relative;
-      height:clamp(360px, min(80vh, 42vw), 1000px);
-      width:clamp(360px, min(80vh, 42vw), 1000px);
+      height:clamp(360px, min(88vh, 46vw), 1000px);
+      width:clamp(360px, min(88vh, 46vw), 1000px);
       display:flex; align-items:flex-end; justify-content:center;
       opacity:0; animation:heroCircle .8s cubic-bezier(.22,1,.36,1) .2s forwards;
     }
@@ -105,6 +120,8 @@
       .nav-link::after { transform:none; }
       h2.font-display.text-tinta::after { animation:none; transform:scaleX(1); }
       .cta-pulse { animation:none; }
+      .cta-glow { animation:none !important; opacity:1 !important; transform:none !important; box-shadow:none !important; }
+      .cta-glow::after { display:none !important; }
       .hero-anim,.hero-circle,.hero-portrait{ opacity:1 !important; transform:none !important; animation:none !important; }
       .hero-portrait { transform:translateX(-50%) !important; }
     }
@@ -117,43 +134,57 @@
     }
     .valores-track--rev{ animation-direction:reverse; }
     @keyframes vt-scroll{ from{ transform:translateX(0); } to{ transform:translateX(-50%); } }
-    .vt-item{ font-family:'Fraunces', Georgia, serif; font-weight:500; font-size:1.25rem; padding:.55rem 0; }
+    .vt-item{ font-family:'Fraunces', Georgia, serif; font-weight:500; font-size: clamp(1rem, 1.5vw, 1.5rem); padding:.55rem 0; }
     .vt-sep{ padding:0 1.5rem; color:var(--terracota); font-size:1.1rem; }
+  </style>
+  <style>
+    html{background:#FBF7F1;color-scheme:light;}
+    #route-veil{position:fixed;inset:0;background:#FBF7F1;opacity:0;pointer-events:none;z-index:60;transition:opacity .35s ease;}
+    #route-veil.show{opacity:1;}
+    main{animation:routeIn .5s ease both;}
+    @keyframes routeIn{from{opacity:0;transform:translateY(8px);}to{opacity:1;transform:none;}}
+    @media (prefers-reduced-motion:reduce){main{animation:none;}#route-veil{transition:none;}}
   </style>
 </head>
 
 <body class="font-body">
+  <div id="route-veil"></div>
+
+  <header class="fixed inset-x-0 top-0 z-40 border-b border-areia/40 bg-off/85 backdrop-blur-sm">
+    <div class="mx-auto flex h-16 max-w-7xl items-center justify-end px-6 md:px-12">
+      <div class="flex items-center gap-6 md:gap-8">
+        <nav class="hidden items-center gap-8 text-sm md:flex">
+          <a href="index.html" class="nav-link active">Início</a>
+          <a href="sobre.html" class="nav-link">Sobre &amp; Formação</a>
+          <a href="atendimento.html" class="nav-link">Atendimentos</a>
+          <a href="perguntas-frequentes.html" class="nav-link">Como Funciona</a>
+          <a href="contato.html" class="nav-link">Contato</a>
+        </nav>
+        <a href="https://wa.me/5511932201048?text=Ol%C3%A1%2C%20gostaria%20de%20conversar%20sobre%20meu%20caso." target="_blank" rel="noopener" class="hidden items-center gap-2 rounded-full bg-[#25D366] px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-[#1ebe5a] md:inline-flex"><svg viewBox="0 0 24 24" fill="currentColor" class="h-4 w-4" aria-hidden="true"><path d="M.057 24l1.687-6.163a11.867 11.867 0 0 1-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.82 11.82 0 0 1 8.413 3.488 11.82 11.82 0 0 1 3.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 0 1-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 0 0 1.518 5.256l-.999 3.648 3.97-1.039zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.52.151-.174.2-.298.3-.497.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.095 3.2 5.076 4.487.709.306 1.262.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>WhatsApp</a>
+        <button id="menu-btn" aria-label="Abrir menu" class="flex h-10 w-10 items-center justify-center text-tinta md:hidden">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        </button>
+      </div>
+    </div>
+    <div id="mobile-menu" class="hidden border-t border-areia/40 bg-off md:hidden">
+      <nav class="flex flex-col px-6 py-3 text-sm">
+        <a href="index.html" class="nav-link active border-b border-areia/30 py-3">Início</a>
+        <a href="sobre.html" class="nav-link border-b border-areia/30 py-3">Sobre &amp; Formação</a>
+        <a href="atendimento.html" class="nav-link border-b border-areia/30 py-3">Atendimentos</a>
+        <a href="perguntas-frequentes.html" class="nav-link border-b border-areia/30 py-3">Como Funciona</a>
+        <a href="contato.html" class="nav-link py-3">Contato</a>
+      </nav>
+    </div>
+  </header>
+
 
 
 
   <main>
 
     <!-- HERO (layout MinimalistHero) -->
-    <section data-od-id="hero" class="relative flex min-h-screen w-full flex-col justify-between overflow-hidden bg-offwhite px-6 py-8 md:px-12 md:py-12">
-      <div class="relative z-30 w-full">
-        <header class="mx-auto flex w-full max-w-[1600px] items-center justify-between">
-          <a href="index.html" class="font-display text-2xl tracking-wide text-grafite">Tadeu França</a>
-          <nav class="hidden items-center gap-8 text-sm md:flex">
-            <a href="index.html" class="nav-link text-grafite/70 hover:text-terracota" aria-current="page">Início</a>
-            <a href="sobre.html" class="nav-link text-grafite/70 hover:text-terracota">Sobre &amp; Formação</a>
-            <a href="atendimentos.html" class="nav-link text-grafite/70 hover:text-terracota">Atendimentos</a>
-            <a href="como-funciona.html" class="nav-link text-grafite/70 hover:text-terracota">Como Funciona</a>
-            <a href="contato.html" class="nav-link text-grafite/70 hover:text-terracota">Contato</a>
-          </nav>
-          <button type="button" onclick="document.getElementById('mobileMenu').classList.toggle('hidden')" class="flex flex-col space-y-1.5 md:hidden" aria-label="Abrir menu">
-            <span class="block h-0.5 w-6 bg-grafite"></span>
-            <span class="block h-0.5 w-6 bg-grafite"></span>
-            <span class="block h-0.5 w-5 bg-grafite"></span>
-          </button>
-          <nav id="mobileMenu" class="absolute left-0 right-0 top-full hidden flex-col gap-2 border-t border-areia/60 bg-offwhite px-6 py-4 shadow-sm md:hidden">
-            <a href="index.html" class="text-sm font-medium text-grafite">Início</a>
-            <a href="sobre.html" class="text-sm font-medium text-grafite/70">Sobre &amp; Formação</a>
-            <a href="atendimentos.html" class="text-sm font-medium text-grafite/70">Atendimentos</a>
-            <a href="como-funciona.html" class="text-sm font-medium text-grafite/70">Como Funciona</a>
-            <a href="contato.html" class="text-sm font-medium text-grafite/70">Contato</a>
-          </nav>
-        </header>
-      </div>
+    <section data-od-id="hero" class="relative flex min-h-screen w-full flex-col justify-between overflow-hidden bg-offwhite px-6 pt-20 pb-16 md:px-12 md:pb-20">
+
 
       <div class="hero-visual">
         <div class="hero-circle relative flex items-end justify-center rounded-full bg-terracota-2/90">
@@ -162,45 +193,46 @@
       </div>
 
       <div class="relative z-20 mx-auto grid w-full max-w-[1600px] flex-grow grid-cols-1 items-center gap-8 py-10 md:grid-cols-3">
-        <div class="hero-anim order-2 text-center md:order-1 md:text-left" style="--d:1s">
-          <p class="mx-auto max-w-xs text-sm leading-relaxed text-grafite/80 md:mx-0">Acompanhamento individualizado para crianças, adolescentes e adultos, com mais de três décadas no desenvolvimento humano.</p>
-          <a href="sobre.html" class="mt-5 inline-block text-sm font-semibold tracking-wide text-terracota underline">Conheça o acompanhamento</a>
-        </div>
-        <div class="order-1 md:order-2 hidden md:block" aria-hidden="true"></div>
-        <div class="hero-anim order-3 flex justify-center text-center md:justify-start" style="--d:1.2s">
-          <h1 class="font-display text-7xl font-extrabold leading-none text-grafite md:text-8xl lg:text-9xl">
-            <span class="block font-black md:ml-14 relative z-20 tadeu-nome">Tadeu</span>
-            <span class="block text-terracota font-medium md:absolute md:right-6 lg:right-12 md:top-1/2 md:-translate-y-1/2 z-0">França</span>
+        <div class="hero-anim order-1 flex justify-center text-center md:justify-start md:pl-16 md:text-left md:self-start md:mt-20" style="--d:1s">
+          <h1 class="font-display leading-none text-grafite font-extrabold text-[clamp(4.5rem,9.5vw,10rem)]">
+            <span class="block font-black relative z-20 tadeu-nome md:top-6">Tadeu</span>
+            <span class="block text-terracota font-medium md:ml-14 -mt-2 text-[80%]">França</span>
           </h1>
         </div>
-      </div>
-
-      <footer class="hero-anim relative z-30 mx-auto mt-12 flex w-full max-w-[1600px] items-center justify-between" style="--d:1.2s">
-        <p class="text-sm font-medium text-grafite/70">Parque do Carmo, São Paulo</p>
-      </footer>
-    </section>
-
-    <!-- FITA DE VALORES (marquee) -->
-    <section class="relative z-10 w-full overflow-hidden -mt-24">
-      <div class="valores-tape bg-offwhite text-grafite border-y-[3px] border-terracota py-1 text-sm">
-        <div class="valores-track">
-          <span class="vt-item">Terapeuta Comportamental ABA · Neuropsicopedagogo · Psicanalista</span>
-          <span class="vt-sep">✦</span>
-          <span class="vt-item">Terapeuta Comportamental ABA · Neuropsicopedagogo · Psicanalista</span>
-          <span class="vt-sep">✦</span>
-          <span class="vt-item">Terapeuta Comportamental ABA · Neuropsicopedagogo · Psicanalista</span>
-          <span class="vt-sep">✦</span>
-          <span class="vt-item">Terapeuta Comportamental ABA · Neuropsicopedagogo · Psicanalista</span>
-          <span class="vt-sep">✦</span>
-          <span class="vt-item">Terapeuta Comportamental ABA · Neuropsicopedagogo · Psicanalista</span>
-          <span class="vt-sep">✦</span>
-          <span class="vt-item">Terapeuta Comportamental ABA · Neuropsicopedagogo · Psicanalista</span>
-          <span class="vt-sep">✦</span>
-          <span class="vt-item">Terapeuta Comportamental ABA · Neuropsicopedagogo · Psicanalista</span>
-          <span class="vt-sep">✦</span>
-          <span class="vt-item">Terapeuta Comportamental ABA · Neuropsicopedagogo · Psicanalista</span>
+        <div class="order-2 md:order-2 hidden md:block" aria-hidden="true"></div>
+        <div class="hero-anim order-3 text-center md:order-3 md:self-start md:text-left md:mt-72 md:translate-x-4" style="--d:1.2s">
+          <p class="mx-auto max-w-lg text-[clamp(1rem,1.4vw,1.3rem)] leading-relaxed font-medium text-grafite/90 md:ml-auto md:mt-10 mt-6">Acompanhamento individualizado para crianças, adolescentes e adultos, com mais de três décadas no desenvolvimento humano.</p>
         </div>
       </div>
+
+      <div class="absolute left-1/2 bottom-[16%] z-30 -translate-x-1/2">
+        <a href="sobre.html" class="cta-glow inline-block px-4 py-2 text-[clamp(0.8125rem,1vw,1rem)] font-semibold tracking-wide">Conheça o acompanhamento</a>
+      </div>
+
+      <footer class="hero-anim relative z-30 mx-auto mt-12 flex w-full max-w-[1600px] items-center justify-between" style="--d:1.2s"></footer>
+
+      <!-- FITA DE VALORES (marquee) -->
+      <section class="absolute bottom-0 left-0 right-0 z-20 w-full overflow-hidden">
+        <div class="valores-tape bg-offwhite text-grafite border-y-[3px] border-terracota py-1 text-sm">
+          <div class="valores-track">
+            <span class="vt-item">Terapeuta Comportamental ABA · Neuropsicopedagogo · Psicanalista</span>
+            <span class="vt-sep">✦</span>
+            <span class="vt-item">Terapeuta Comportamental ABA · Neuropsicopedagogo · Psicanalista</span>
+            <span class="vt-sep">✦</span>
+            <span class="vt-item">Terapeuta Comportamental ABA · Neuropsicopedagogo · Psicanalista</span>
+            <span class="vt-sep">✦</span>
+            <span class="vt-item">Terapeuta Comportamental ABA · Neuropsicopedagogo · Psicanalista</span>
+            <span class="vt-sep">✦</span>
+            <span class="vt-item">Terapeuta Comportamental ABA · Neuropsicopedagogo · Psicanalista</span>
+            <span class="vt-sep">✦</span>
+            <span class="vt-item">Terapeuta Comportamental ABA · Neuropsicopedagogo · Psicanalista</span>
+            <span class="vt-sep">✦</span>
+            <span class="vt-item">Terapeuta Comportamental ABA · Neuropsicopedagogo · Psicanalista</span>
+            <span class="vt-sep">✦</span>
+            <span class="vt-item">Terapeuta Comportamental ABA · Neuropsicopedagogo · Psicanalista</span>
+          </div>
+        </div>
+      </section>
     </section>
 
     <!-- ACOLHIMENTO -->
@@ -221,7 +253,7 @@
           </a>
         </div>
         <div class="teaser-enter" style="transition-delay:.17s">
-          <a href="atendimentos.html" data-od-id="teaser-atendimento" class="group block h-full rounded-2xl border border-areia/50 bg-creme/30 p-8 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-terra/10 hover:rotate-1">
+          <a href="atendimento.html" data-od-id="teaser-atendimento" class="group block h-full rounded-2xl border border-areia/50 bg-creme/30 p-8 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-terra/10 hover:rotate-1">
             <h3 class="font-display text-2xl text-tinta">Atendimento</h3>
             <p class="mt-3 text-tinta/75">Um acompanhamento que parte da sua história e do seu ritmo.</p>
             <span class="mt-5 inline-block text-terra">saiba mais →</span>
@@ -239,22 +271,39 @@
 
   </main>
 
-  <footer data-od-id="site-footer" class="bg-tinta px-6 py-16 text-off/90 md:px-10">
-    <div class="mx-auto grid  gap-10 md:grid-cols-2">
+  <footer data-od-id="site-footer" class="border-t border-off/10 bg-tinta px-6 py-14 text-off/90 md:px-10">
+    <div class="mx-auto grid max-w-6xl gap-10 md:grid-cols-2">
       <div>
         <p class="font-display text-3xl text-off">Tadeu França</p>
         <p class="mt-4 max-w-sm text-sm leading-relaxed text-off/70">Acompanhamento individualizado para crianças, adolescentes e adultos.</p>
       </div>
-      <div class="space-y-2 text-sm">
-        <p><a class="underline-hover" href="https://wa.me/5511932201048?text=Ol%C3%A1%2C%20gostaria%20de%20conversar%20sobre%20meu%20caso.">WhatsApp: (11) 93220-1048</a></p>
-        <p><a class="underline-hover" href="https://instagram.com/tadeufranca_terapeuta" target="_blank" rel="noopener">Instagram: @tadeufranca_terapeuta</a></p>
-        <p><a class="underline-hover" href="tel:+5511932201048">Telefone: (11) 93220-1048</a></p>
-        <p><a class="underline-hover" href="mailto:terapeutatadeufranca@gmail.com">terapeutatadeufranca@gmail.com</a></p>
-        <p class="text-off/70">Av. Maria Luiza Americano, 103 Parque do Carmo, São Paulo CEP 08275-001</p>
-        <p class="text-off/70">Atendimento presencial e online</p>
+      <div class="space-y-3 text-sm">
+        <p class="flex items-center gap-3">
+          <span class="flex h-9 w-9 items-center justify-center rounded-full bg-off/10 text-terra2" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="h-4 w-4"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.6a2 2 0 0 1-.5 2.1L8.1 9.6a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.5c.8.3 1.7.5 2.6.6a2 2 0 0 1 1.7 2z"/></svg>
+          </span>
+          <a class="underline-hover" href="tel:+5511932201048">Telefone: (11) 93220-1048</a>
+        </p>
+        <p class="flex items-center gap-3">
+          <span class="flex h-9 w-9 items-center justify-center rounded-full bg-off/10 text-terra2" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="h-4 w-4"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+          </span>
+          <a class="underline-hover" href="mailto:terapeutatadeufranca@gmail.com">terapeutatadeufranca@gmail.com</a>
+        </p>
+        <p class="flex items-start gap-3 text-off/70">
+          <span class="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-off/10 text-terra2" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="h-4 w-4"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </span>
+          <span>Av. Maria Luiza Americano, 103<br>Parque do Carmo, São Paulo — CEP 08275-001</span>
+        </p>
+        <p class="flex items-center gap-3 text-off/70">
+          <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-off/10 text-terra2" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="h-4 w-4"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+          </span>
+          <span>Atendimento presencial e online</span>
+        </p>
       </div>
     </div>
-    <p class="mx-auto mt-12  text-xs text-off/40">© Tadeu França Acompanhamento individualizado.</p>
   </footer>
 
   <script>
@@ -264,6 +313,41 @@
     }, { threshold: 0.12 });
     revs.forEach(r => ro.observe(r));
 
+    const mb = document.getElementById('menu-btn');
+    const mm = document.getElementById('mobile-menu');
+    if (mb) mb.addEventListener('click', (e) => { e.stopPropagation(); mm.classList.toggle('hidden'); });
+    document.addEventListener('click', (e) => {
+      if (mm && !mm.classList.contains('hidden')) {
+        const hdr = mb.closest('header');
+        if (hdr && !hdr.contains(e.target)) mm.classList.add('hidden');
+      }
+    });
+    if (mm) mm.querySelectorAll('a').forEach(a => a.addEventListener('click', () => mm.classList.add('hidden')));
+
+  </script>
+  <script>
+    (function(){
+      if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+      var veil = document.getElementById('route-veil');
+      if (!veil) return;
+      document.querySelectorAll('a[href]').forEach(function(a){
+        var raw = a.getAttribute('href');
+        if (!raw || raw.charAt(0) === '#') return;
+        if (a.target === '_blank' || a.hasAttribute('download')) return;
+        var abs;
+        try { abs = new URL(a.href, location.href); } catch(e){ return; }
+        if (abs.origin !== location.origin) return;
+        a.addEventListener('click', function(e){
+          if (e.metaKey || e.ctrlKey || e.shiftKey || e.button !== 0) return;
+          e.preventDefault();
+          veil.classList.add('show');
+          var done = false;
+          var go = function(){ if (done) return; done = true; window.location.href = abs.href; };
+          veil.addEventListener('transitionend', go, { once: true });
+          setTimeout(go, 450);
+        });
+      });
+    })();
   </script>
 </body>
 </html>
